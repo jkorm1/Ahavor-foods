@@ -155,10 +155,10 @@
                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
                     <p class="testimonial-content">"I've been using Ahavor's Premium Oat Mix for breakfast every day for the past month, and I've noticed a significant improvement in my energy levels throughout the day. The taste is amazing too!"</p>
                     <div class="testimonial-author">
-                        <img src="{{ asset('images/client-1.jpg') }}" alt="Sarah Johnson" class="author-image">
+                        <img src="{{ asset('images/client-1.jpeg') }}" alt="Sarah Johnson" class="author-image">
                         <div class="author-info">
-                            <h4 class="author-name">Sarah Johnson</h4>
-                            <p class="author-title">Fitness Instructor</p>
+                            <h4 class="author-name">Joseph Korm</h4>
+                            <p class="author-title">CEO of Star Pops</p>
                             <div class="testimonial-rating">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -174,9 +174,9 @@
                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
                     <p class="testimonial-content">"As a nutritionist, I'm very particular about the products I recommend to my clients. Ahavor Foods' Tom Brown Mix is one of my top recommendations for its nutritional value and delicious taste."</p>
                     <div class="testimonial-author">
-                        <img src="{{ asset('images/client-2.jpg') }}" alt="Dr. Michael Owusu" class="author-image">
+                        <img src="{{ asset('images/client-3.jpeg') }}" alt="Dr. Michael Owusu" class="author-image">
                         <div class="author-info">
-                            <h4 class="author-name">Dr. Michael Owusu</h4>
+                            <h4 class="author-name">Min. Shantel</h4>
                             <p class="author-title">Nutritionist</p>
                             <div class="testimonial-rating">
                                 <i class="fas fa-star"></i>
@@ -193,10 +193,10 @@
                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
                     <p class="testimonial-content">"My children are very picky eaters, but they absolutely love Ahavor's Multi-Grain Cereal. As a mother, I'm happy that they're getting all the nutrients they need in a product they actually enjoy eating."</p>
                     <div class="testimonial-author">
-                        <img src="{{ asset('images/client-3.jpg') }}" alt="Ama Mensah" class="author-image">
+                        <img src="{{ asset('images/client-2.jpeg') }}" alt="Ama Mensah" class="author-image">
                         <div class="author-info">
-                            <h4 class="author-name">Ama Mensah</h4>
-                            <p class="author-title">Mother of Three</p>
+                            <h4 class="author-name">Christian Frimpong</h4>
+                            <p class="author-title">Founder of global</p>
                             <div class="testimonial-rating">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>

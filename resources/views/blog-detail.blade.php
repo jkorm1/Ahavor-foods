@@ -1,59 +1,75 @@
 @extends('layouts.main')
 
-@section('title', isset($category) ? $category->name : 'Blog')
+@section('title', $post->title)
 
 @section('content')
     <!-- Breadcrumbs -->
     @php
         $breadcrumbs = [
-            ['title' => 'Blog', 'url' => route('blog')]
+            ['title' => 'Blog', 'url' => route('blog')],
+            ['title' => $post->title, 'url' => '']
         ];
-        
-        if(isset($category)) {
-            $breadcrumbs[] = ['title' => $category->name, 'url' => ''];
-        }
     @endphp
     
     @include('components.breadcrumbs', ['breadcrumbs' => $breadcrumbs])
     
-    <!-- Blog Header -->
+    <!-- Blog Detail Section -->
     <section class="section">
         <div class="container">
-            <div class="section-header">
-                <h3 class="section-subtitle">Our Blog</h3>
-                <h2 class="section-title">{{ isset($category) ? $category->name : 'Latest Articles' }}</h2>
-                <p class="section-description">Stay updated with nutrition tips, recipes, and company news</p>
-            </div>
-            
-            <div class="blog-container">
-                <div class="blog-main">
-                    <div class="blog-grid">
-                        @foreach($posts as $post)
-                        <div class="blog-card" data-aos="fade-up">
-                            <div class="blog-image">
-                                <a href="{{ route('blog.detail', $post->slug) }}">
-                                    <img src="{{ asset($post->image) }}" alt="{{ $post->title }}" class="blur-load">
-                                </a>
-                                <div class="blog-category">{{ $post->category->name }}</div>
-                            </div>
-                            <div class="blog-content">
-                                <div class="blog-meta">
-                                    <span><i class="far fa-calendar"></i> {{ $post->created_at->format('M d, Y') }}</span>
-                                    <span><i class="far fa-user"></i> {{ $post->author->name }}</span>
-                                </div>
-                                <h3 class="blog-title">
-                                    <a href="{{ route('blog.detail', $post->slug) }}">{{ $post->title }}</a>
-                                </h3>
-                                <p class="blog-excerpt">{{ Str::limit($post->excerpt, 120) }}</p>
-                                <a href="{{ route('blog.detail', $post->slug) }}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                        @endforeach
+            <div class="blog-detail-container">
+                <div class="blog-detail-main">
+                    <!-- Featured Image -->
+                    <div class="blog-detail-image">
+                        <img src="{{ asset($post->image) }}" alt="{{ $post->title }}" class="blur-load">
                     </div>
                     
-                    <!-- Pagination -->
-                    <div class="pagination-container">
-                        {{ $posts->links() }}
+                    <!-- Post Meta -->
+                    <div class="blog-detail-meta">
+                        <span><i class="far fa-calendar"></i> {{ $post->created_at->format('M d, Y') }}</span>
+                        <span><i class="far fa-user"></i> {{ $post->author->name }}</span>
+                        <span><i class="far fa-folder"></i> {{ $post->category->name }}</span>
+                    </div>
+                    
+                    <!-- Post Title -->
+                    <h1 class="blog-detail-title">{{ $post->title }}</h1>
+                    
+                    <!-- Post Content -->
+                    <div class="blog-detail-content">
+                        {!! $post->content !!}
+                    </div>
+                    
+                    <!-- Tags -->
+                    <div class="blog-detail-tags">
+                        <h3>Tags:</h3>
+                        <div class="tags-cloud">
+                            @foreach($tags as $tag)
+                            <a href="{{ route('blog', ['tag' => $tag->slug]) }}" class="tag">{{ $tag->name }}</a>
+                            @endforeach
+                        </div>
+                    </div>
+                    
+                    <!-- Related Posts -->
+                    <div class="related-posts">
+                        <h3>Related Posts</h3>
+                        <div class="related-posts-grid">
+                            @foreach($relatedPosts as $relatedPost)
+                            <div class="related-post-card">
+                                <div class="related-post-image">
+                                    <a href="{{ route('blog.detail', $relatedPost->slug) }}">
+                                        <img src="{{ asset($relatedPost->image) }}" alt="{{ $relatedPost->title }}" class="blur-load">
+                                    </a>
+                                </div>
+                                <div class="related-post-content">
+                                    <h4>
+                                        <a href="{{ route('blog.detail', $relatedPost->slug) }}">{{ $relatedPost->title }}</a>
+                                    </h4>
+                                    <div class="related-post-date">
+                                        <i class="far fa-calendar"></i> {{ $relatedPost->created_at->format('M d, Y') }}
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
                 
@@ -107,18 +123,8 @@
                             @endforeach
                         </div>
                     </div>
-                    
-                    <!-- Tags Widget -->
-                    <div class="sidebar-widget tags-widget">
-                        <h3 class="widget-title">Popular Tags</h3>
-                        <div class="tags-cloud">
-                            @foreach($tags as $tag)
-                            <a href="{{ route('blog', ['tag' => $tag->slug]) }}" class="tag">{{ $tag->name }}</a>
-                            @endforeach
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
-@endsection
+@endsection 

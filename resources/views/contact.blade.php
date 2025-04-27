@@ -4,265 +4,317 @@
 
 @section('content')
     <!-- Contact Hero Section -->
-    <section class="bg-ahavor-green/10 py-12 md:py-20">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto text-center animate-fadeIn">
-                <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Contact Us</h1>
-                <p class="text-lg text-gray-700 mb-8">
-                    We'd love to hear from you! Reach out with any questions, feedback, or inquiries.
+    <section class="contact-hero">
+        <div class="container">
+            <div class="contact-hero-content">
+                <h1 class="contact-hero-title">Get In Touch</h1>
+                <p class="contact-hero-description">
+                    We'd love to hear from you! Reach out with questions, feedback, or partnership opportunities.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Information Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Contact Info -->
-                <div class="lg:col-span-1">
-                    <div class="bg-gray-50 p-8 rounded-lg shadow-sm h-full animate-fadeIn">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Get In Touch</h2>
-                        
-                        <div class="space-y-6">
-                            <!-- Address -->
-                            <div class="flex items-start">
-                                <div class="w-12 h-12 bg-ahavor-green/10 rounded-full flex items-center justify-center mr-4 shrink-0">
-                                    <i class="fas fa-map-marker-alt text-xl text-ahavor-green"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-bold text-gray-900 mb-1">Our Location</h3>
-                                    <p class="text-gray-700">123 Ahavor Street, Accra, Ghana</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Phone -->
-                            <div class="flex items-start">
-                                <div class="w-12 h-12 bg-ahavor-orange/10 rounded-full flex items-center justify-center mr-4 shrink-0">
-                                    <i class="fas fa-phone-alt text-xl text-ahavor-orange"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-bold text-gray-900 mb-1">Phone Number</h3>
-                                    <p class="text-gray-700">+233 123 456 789</p>
-                                    <p class="text-gray-700">+233 987 654 321</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Email -->
-                            <div class="flex items-start">
-                                <div class="w-12 h-12 bg-ahavor-gold/10 rounded-full flex items-center justify-center mr-4 shrink-0">
-                                    <i class="fas fa-envelope text-xl text-ahavor-gold"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-bold text-gray-900 mb-1">Email Address</h3>
-                                    <p class="text-gray-700">info@ahavor.com</p>
-                                    <p class="text-gray-700">support@ahavor.com</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Working Hours -->
-                            <div class="flex items-start">
-                                <div class="w-12 h-12 bg-ahavor-green/10 rounded-full flex items-center justify-center mr-4 shrink-0">
-                                    <i class="fas fa-clock text-xl text-ahavor-green"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-bold text-gray-900 mb-1">Working Hours</h3>
-                                    <p class="text-gray-700">Monday - Friday: 8:00 AM - 5:00 PM</p>
-                                    <p class="text-gray-700">Saturday: 9:00 AM - 1:00 PM</p>
-                                    <p class="text-gray-700">Sunday: Closed</p>
-                                </div>
-                            </div>
+    <!-- Contact Info Section -->
+    <section class="contact-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-up">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        
-                        <!-- Social Media -->
-                        <div class="mt-8">
-                            <h3 class="font-bold text-gray-900 mb-4">Follow Us</h3>
-                            <div class="flex space-x-4">
-                                <a href="#" class="w-10 h-10 bg-ahavor-orange/10 rounded-full flex items-center justify-center text-ahavor-orange hover:bg-ahavor-orange hover:text-white transition-colors">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 bg-ahavor-green/10 rounded-full flex items-center justify-center text-ahavor-green hover:bg-ahavor-green hover:text-white transition-colors">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 bg-ahavor-gold/10 rounded-full flex items-center justify-center text-ahavor-gold hover:bg-ahavor-gold hover:text-white transition-colors">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 bg-ahavor-orange/10 rounded-full flex items-center justify-center text-ahavor-orange hover:bg-ahavor-orange hover:text-white transition-colors">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
-                        </div>
+                        <h4>Visit Us</h4>
+                        <p>123 Nutrition Avenue<br>Accra, Ghana</p>
+                        <a href="https://maps.google.com" target="_blank" class="btn btn-outline-primary">Get Directions</a>
                     </div>
                 </div>
                 
-                <!-- Contact Form -->
-                <div class="lg:col-span-2">
-                    <div class="bg-white p-8 rounded-lg shadow-sm animate-fadeIn delay-100">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
-                        
-                        <form action="{{ route('contact.submit') }}" method="POST" class="space-y-6">
-                            @csrf
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
-                                    <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-ahavor-orange" required>
-                                </div>
-                                <div>
-                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Your Email</label>
-                                    <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-ahavor-orange" required>
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-ahavor-orange">
-                            </div>
-                            
-                            <div>
-                                <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-                                <input type="text" id="subject" name="subject" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-ahavor-orange" required>
-                            </div>
-                            
-                            <div>
-                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
-                                <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-ahavor-orange" required></textarea>
-                            </div>
-                            
-                            <div>
-                                <button type="submit" class="w-full bg-ahavor-green hover:bg-ahavor-green/90 text-white font-medium py-3 px-6 rounded-md transition-colors">
-                                    Send Message
-                                </button>
-                            </div>
-                        </form>
+                <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h4>Call Us</h4>
+                        <p>+233 20 123 4567<br>+233 30 987 6543</p>
+                        <a href="tel:+233201234567" class="btn btn-outline-primary">Call Now</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email Us</h4>
+                        <p>info@ahavor.com<br>support@ahavor.com</p>
+                        <a href="mailto:info@ahavor.com" class="btn btn-outline-primary">Send Email</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Map Section -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto text-center mb-12 animate-fadeIn">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">Find Us</h2>
-                <p class="text-lg text-gray-700">
-                    Visit our headquarters or one of our retail locations.
-                </p>
-            </div>
-            
-            <div class="rounded-lg overflow-hidden shadow-lg animate-fadeIn delay-100">
-                <div class="h-96 w-full">
-                    <!-- Replace with actual Google Maps embed code -->
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254936.9394494253!2d-0.2661017242186092!3d5.594135269748262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9084b2b7a773%3A0xbed14ed8650e2dd3!2sAccra%2C%20Ghana!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <!-- Contact Form & Map Section -->
+    <section class="contact-form-map">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <div class="contact-form-card">
+                        <h3>Send Us a Message</h3>
+                        <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+                        
+                        <form id="contactForm" action="{{ route('contact.submit') }}" method="POST">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                                        <label for="name">Your Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+                                        <label for="email">Your Email</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                                    <label for="subject">Subject</label>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <div class="form-floating">
+                                    <select class="form-select" id="department" name="department">
+                                        <option selected disabled>Select a department</option>
+                                        <option value="customer-service">Customer Service</option>
+                                        <option value="sales">Sales & Orders</option>
+                                        <option value="partnerships">Business Partnerships</option>
+                                        <option value="careers">Careers</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <label for="department">Department</label>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <div class="form-floating">
+                                    <textarea class="form-control" id="message" name="message" placeholder="Your Message" style="height: 150px" required></textarea>
+                                    <label for="message">Your Message</label>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="privacy" required>
+                                <label class="form-check-label" for="privacy">I agree to the <a href="#">privacy policy</a></label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                            
+                            @if(session('success'))
+                            <div class="form-response success">
+                                {{ session('success') }}
+                            </div>
+                            @endif
+                            
+                            @if($errors->any())
+                            <div class="form-response error">
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="contact-map-card">
+                        <h3>Find Us</h3>
+                        <p>Visit our headquarters in Accra, Ghana</p>
+                        
+                        <div class="map-container">
+                            <div class="ratio ratio-4x3">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254202.94314521635!2d-0.2661034249999999!3d5.5912034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9084b2b7a773%3A0xbed14ed8650e2dd3!2sAccra%2C%20Ghana!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                        
+                        <div class="office-hours">
+                            <h4>Office Hours</h4>
+                            <ul>
+                                <li><strong>Monday - Friday:</strong> 8:00 AM - 5:00 PM</li>
+                                <li><strong>Saturday:</strong> 9:00 AM - 1:00 PM</li>
+                                <li><strong>Sunday:</strong> Closed</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto text-center mb-12 animate-fadeIn">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-                <p class="text-lg text-gray-700">
-                    Find answers to common questions about our products and services.
-                </p>
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">FAQ</p>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-description">Find answers to common questions about our products and services</p>
             </div>
             
-            <div class="max-w-3xl mx-auto space-y-6">
-                <!-- FAQ Item 1 -->
-                <div class="bg-gray-50 rounded-lg p-6 animate-fadeIn delay-100">
-                    <button class="flex justify-between items-center w-full text-left focus:outline-none">
-                        <h3 class="text-xl font-bold text-gray-900">Where can I buy Ahavor products?</h3>
-                        <i class="fas fa-chevron-down text-ahavor-orange"></i>
-                    </button>
-                    <div class="mt-4">
-                        <p class="text-gray-700">
-                            Ahavor products are available in major supermarkets and retail stores across Ghana. You can also purchase our products directly from our website with delivery options available.
-                        </p>
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2" data-aos="fade-up">
+                    <div class="accordion" id="faqAccordion">
+                        <!-- FAQ Item 1 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Where can I purchase Ahavor Foods products?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Our products are available at major supermarkets and retail stores across Ghana, including Shoprite, Melcom, and Game. You can also purchase directly from our online store with delivery options available in select areas.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 2 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Are your products suitable for people with dietary restrictions?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Many of our products are gluten-free, vegan, and made without artificial preservatives. Each product is clearly labeled with allergen information and dietary suitability. If you have specific dietary concerns, please check the product packaging or contact our customer service team for detailed information.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 3 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    How should I store your products?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Our products should be stored in a cool, dry place away from direct sunlight. Once opened, please reseal the package tightly and consume within the recommended timeframe. For specific storage instructions, please refer to the packaging of each product.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- FAQ Item 2 -->
-                <div class="bg-gray-50 rounded-lg p-6 animate-fadeIn delay-150">
-                    <button class="flex justify-between items-center w-full text-left focus:outline-none">
-                        <h3 class="text-xl font-bold text-gray-900">Are your products organic?</h3>
-                        <i class="fas fa-chevron-down text-ahavor-orange"></i>
-                    </button>
-                    <div class="mt-4">
-                        <p class="text-gray-700">
-                            Many of our products use organic ingredients sourced from local farmers. We are committed to providing natural, nutritious options and clearly label which products are certified organic.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 3 -->
-                <div class="bg-gray-50 rounded-lg p-6 animate-fadeIn delay-200">
-                    <button class="flex justify-between items-center w-full text-left focus:outline-none">
-                        <h3 class="text-xl font-bold text-gray-900">Do you ship internationally?</h3>
-                        <i class="fas fa-chevron-down text-ahavor-orange"></i>
-                    </button>
-                    <div class="mt-4">
-                        <p class="text-gray-700">
-                            Yes, we currently ship to select countries in Africa and are expanding our international shipping options. Please contact our customer service team for specific information about shipping to your location.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 4 -->
-                <div class="bg-gray-50 rounded-lg p-6 animate-fadeIn delay-250">
-                    <button class="flex justify-between items-center w-full text-left focus:outline-none">
-                        <h3 class="text-xl font-bold text-gray-900">How can I become a distributor?</h3>
-                        <i class="fas fa-chevron-down text-ahavor-orange"></i>
-                    </button>
-                    <div class="mt-4">
-                        <p class="text-gray-700">
-                            We're always looking for partners to help distribute our products. Please fill out the distributor application form on our website or contact our business development team at partners@ahavor.com.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 5 -->
-                <div class="bg-gray-50 rounded-lg p-6 animate-fadeIn delay-300">
-                    <button class="flex justify-between items-center w-full text-left focus:outline-none">
-                        <h3 class="text-xl font-bold text-gray-900">Do you offer bulk discounts?</h3>
-                        <i class="fas fa-chevron-down text-ahavor-orange"></i>
-                    </button>
-                    <div class="mt-4">
-                        <p class="text-gray-700">
-                            Yes, we offer special pricing for bulk orders. Please contact our sales team at sales@ahavor.com for more information about bulk purchasing options.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="max-w-3xl mx-auto text-center mt-12 animate-fadeIn">
-                <p class="text-lg text-gray-700 mb-6">
-                    Didn't find the answer you're looking for? Contact our customer support team.
-                </p>
-                <a href="mailto:support@ahavor.com" class="inline-block bg-ahavor-orange hover:bg-ahavor-gold text-white font-medium py-3 px-8 rounded-md transition-colors">
-                    Email Support
-                </a>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action Section -->
-    <section class="py-16 bg-ahavor-green/10">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto text-center animate-fadeIn">
-                <h2 class="text-3xl font-bold text-gray-900 mb-6">Join Our Community</h2>
-                <p class="text-lg text-gray-700 mb-8">
-                    Subscribe to our newsletter to receive updates, recipes, and special offers.
-                </p>
-                <form action="{{ route('newsletter.subscribe') }}" method="POST" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+    <!-- Social Media Section -->
+    <section class="social-media-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Social Media</p>
+                <h2 class="section-title">Connect With Us</h2>
+                <p class="section-description">Follow us on social media for updates, recipes, and more</p>
+            </div>
+            
+            <div class="social-grid">
+                <div class="row g-3">
+                    <!-- Social Media 1 -->
+                    <div class="col-md-4 col-6" data-aos="zoom-in">
+                        <a href="#" class="social-card facebook">
+                            <div class="social-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <h4>Facebook</h4>
+                            <p>@AhavorFoods</p>
+                        </a>
+                    </div>
+                    
+                    <!-- Social Media 2 -->
+                    <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="100">
+                        <a href="#" class="social-card instagram">
+                            <div class="social-icon">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <h4>Instagram</h4>
+                            <p>@AhavorFoods</p>
+                        </a>
+                    </div>
+                    
+                    <!-- Social Media 3 -->
+                    <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="200">
+                        <a href="#" class="social-card twitter">
+                            <div class="social-icon">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                            <h4>Twitter</h4>
+                            <p>@AhavorFoods</p>
+                        </a>
+                    </div>
+                    
+                    <!-- Social Media 4 -->
+                    <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="300">
+                        <a href="#" class="social-card youtube">
+                            <div class="social-icon">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                            <h4>YouTube</h4>
+                            <p>Ahavor Foods Channel</p>
+                        </a>
+                    </div>
+                    
+                    <!-- Social Media 5 -->
+                    <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="400">
+                        <a href="#" class="social-card linkedin">
+                            <div class="social-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <h4>LinkedIn</h4>
+                            <p>Ahavor Foods Ltd</p>
+                        </a>
+                    </div>
+                    
+                    <!-- Social Media 6 -->
+                    <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="500">
+                        <a href="#" class="social-card pinterest">
+                            <div class="social-icon">
+                                <i class="fab fa-pinterest-p"></i>
+                            </div>
+                            <h4>Pinterest</h4>
+                            <p>@AhavorFoods</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2 class="newsletter-title">Subscribe to Our Newsletter</h2>
+                <p class="newsletter-description">Stay updated with our latest products, recipes, and special offers.</p>
+                
+                <form class="newsletter-form" action="{{ route('newsletter.subscribe') }}" method="POST">
                     @csrf
-                    <input type="email" name="email" placeholder="Your Email Address" class="flex-1 px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-ahavor-orange">
-                    <button type="submit" class="bg-ahavor-green hover:bg-ahavor-green/90 text-white font-medium py-3 px-6 rounded-md transition-colors">
-                        Subscribe
-                    </button>
+                    <input type="email" class="newsletter-input" name="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="newsletter-button">Subscribe</button>
                 </form>
             </div>
         </div>
     </section>
-@endsection
+@endsection 

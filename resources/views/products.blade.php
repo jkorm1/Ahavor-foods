@@ -28,85 +28,95 @@
             <div class="products-grid">
                 <!-- Product 1 -->
                 <div class="product-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="product-image-container">
-                        <img src="{{ asset('images/product-oats.jpg') }}" alt="Ahavor Oats" class="product-image blur-load">
-                        <div class="product-badge">Best Seller</div>
-                    </div>
-                    <div class="product-content">
-                        <p class="product-category">Oat Products</p>
-                        <h3 class="product-title">Premium Oats</h3>
-                        <p class="product-description">
-                            Our premium oats are packed with nutrients and fiber, perfect for a healthy breakfast or snack.
-                        </p>
-                        <p class="product-price">$12.99</p>
-                        <button class="product-button">Add to Cart</button>
-                    </div>
+                    <a href="{{ route('product.detail', 'premium-oats') }}" class="product-link">
+                        <div class="product-image-container">
+                            <img src="{{ asset('images/product-oats.jpg') }}" alt="Ahavor Oats" class="product-image blur-load">
+                            <div class="product-badge">Best Seller</div>
+                        </div>
+                        <div class="product-content">
+                            <p class="product-category">Oat Products</p>
+                            <h3 class="product-title">Premium Oats</h3>
+                            <p class="product-description">
+                                Our premium oats are packed with nutrients and fiber, perfect for a healthy breakfast or snack.
+                            </p>
+                            <p class="product-price">$12.99</p>
+                            <button class="product-button">Add to Cart</button>
+                        </div>
+                    </a>
                 </div>
                 
                 <!-- Product 2 -->
                 <div class="product-card" data-aos="fade-up" data-aos-delay="150">
-                    <div class="product-image-container">
-                        <img src="{{ asset('images/product-tombrown.jpg') }}" alt="Ahavor Tom Brown" class="product-image blur-load">
-                        <div class="product-badge">New</div>
-                    </div>
-                    <div class="product-content">
-                        <p class="product-category">Tom Brown</p>
-                        <h3 class="product-title">Tom Brown Mix</h3>
-                        <p class="product-description">
-                            A nutritious blend of roasted corn, millet, and groundnuts, perfect for the whole family.
-                        </p>
-                        <p class="product-price">$15.99</p>
-                        <button class="product-button">Add to Cart</button>
-                    </div>
+                    <a href="{{ route('product.detail', 'tom-brown-mix') }}" class="product-link">
+                        <div class="product-image-container">
+                            <img src="{{ asset('images/product-tombrown.jpg') }}" alt="Ahavor Tom Brown" class="product-image blur-load">
+                            <div class="product-badge">New</div>
+                        </div>
+                        <div class="product-content">
+                            <p class="product-category">Tom Brown</p>
+                            <h3 class="product-title">Tom Brown Mix</h3>
+                            <p class="product-description">
+                                A nutritious blend of roasted corn, millet, and groundnuts, perfect for the whole family.
+                            </p>
+                            <p class="product-price">$15.99</p>
+                            <button class="product-button">Add to Cart</button>
+                        </div>
+                    </a>
                 </div>
                 
                 <!-- Product 3 -->
                 <div class="product-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="product-image-container">
-                        <img src="{{ asset('images/product-cereal.jpg') }}" alt="Ahavor Cereal" class="product-image blur-load">
-                    </div>
-                    <div class="product-content">
-                        <p class="product-category">Cereal Mixes</p>
-                        <h3 class="product-title">Grain Cereal</h3>
-                        <p class="product-description">
-                            A delicious multi-grain cereal that provides essential nutrients for your daily needs.
-                        </p>
-                        <p class="product-price">$14.99</p>
-                        <button class="product-button">Add to Cart</button>
-                    </div>
+                    <a href="{{ route('product.detail', 'grain-cereal') }}" class="product-link">
+                        <div class="product-image-container">
+                            <img src="{{ asset('images/product-cereal.jpg') }}" alt="Ahavor Cereal" class="product-image blur-load">
+                        </div>
+                        <div class="product-content">
+                            <p class="product-category">Cereal Mixes</p>
+                            <h3 class="product-title">Grain Cereal</h3>
+                            <p class="product-description">
+                                A delicious multi-grain cereal that provides essential nutrients for your daily needs.
+                            </p>
+                            <p class="product-price">$14.99</p>
+                            <button class="product-button">Add to Cart</button>
+                        </div>
+                    </a>
                 </div>
                 
                 <!-- Product 4 -->
                 <div class="product-card" data-aos="fade-up" data-aos-delay="250">
-                    <div class="product-image-container">
-                        <img src="{{ asset('images/product-millet.jpg') }}" alt="Ahavor Millet" class="product-image blur-load">
-                    </div>
-                    <div class="product-content">
-                        <p class="product-category">Grains</p>
-                        <h3 class="product-title">Organic Millet</h3>
-                        <p class="product-description">
-                            Nutrient-rich millet grains that are gluten-free and easy to digest.
-                        </p>
-                        <p class="product-price">$11.99</p>
-                        <button class="product-button">Add to Cart</button>
-                    </div>
+                    <a href="{{ route('product.detail', 'organic-millet') }}" class="product-link">
+                        <div class="product-image-container">
+                            <img src="{{ asset('images/product-millet.jpg') }}" alt="Ahavor Millet" class="product-image blur-load">
+                        </div>
+                        <div class="product-content">
+                            <p class="product-category">Grains</p>
+                            <h3 class="product-title">Organic Millet</h3>
+                            <p class="product-description">
+                                Nutrient-rich millet grains that are gluten-free and easy to digest.
+                            </p>
+                            <p class="product-price">$11.99</p>
+                            <button class="product-button">Add to Cart</button>
+                        </div>
+                    </a>
                 </div>
                 
                 <!-- Product 5 -->
                 <div class="product-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="product-image-container">
-                        <img src="{{ asset('images/product-granola.jpg') }}" alt="Ahavor Granola" class="product-image blur-load">
-                        <div class="product-badge">Popular</div>
-                    </div>
-                    <div class="product-content">
-                        <p class="product-category">Breakfast</p>
-                        <h3 class="product-title">Crunchy Granola</h3>
-                        <p class="product-description">
-                            A delicious blend of oats, nuts, and honey for a perfect breakfast or snack.
-                        </p>
-                        <p class="product-price">$16.99</p>
-                        <button class="product-button">Add to Cart</button>
-                    </div>
+                    <a href="{{ route('product.detail', 'crunchy-granola') }}" class="product-link">
+                        <div class="product-image-container">
+                            <img src="{{ asset('images/product-granola.jpg') }}" alt="Ahavor Granola" class="product-image blur-load">
+                            <div class="product-badge">Popular</div>
+                        </div>
+                        <div class="product-content">
+                            <p class="product-category">Breakfast</p>
+                            <h3 class="product-title">Crunchy Granola</h3>
+                            <p class="product-description">
+                                A delicious blend of oats, nuts, and honey for a perfect breakfast or snack.
+                            </p>
+                            <p class="product-price">$16.99</p>
+                            <button class="product-button">Add to Cart</button>
+                        </div>
+                    </a>
                 </div>
                 
                 <!-- Product 6 -->

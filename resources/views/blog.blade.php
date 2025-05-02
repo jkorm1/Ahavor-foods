@@ -2,7 +2,7 @@
 
 @section('title', isset($category) ? $category->name : 'Blog')
 
-@section('content')
+    @section('content')
     <!-- Breadcrumbs -->
     @php
         $breadcrumbs = [

@@ -17,6 +17,82 @@ class PageController extends Controller
         return view('products');
     }
     
+    public function productDetail($slug)
+    {
+        // For now, we'll use dummy data until the database is set up
+        $product = (object)[
+            'id' => 1,
+            'slug' => $slug,
+            'name' => 'Premium Oats',
+            'description' => 'Our premium oats are packed with nutrients and fiber, perfect for a healthy breakfast or snack. Made with 100% natural ingredients, these oats provide a great source of protein and essential vitamins.',
+            'regular_price' => 12.99,
+            'sale_price' => null,
+            'category' => 'Oat Products',
+            'images' => [
+                'main' => 'images/product-oats.jpg',
+                'thumbnails' => [
+                    'images/product-oats.jpg',
+                    'images/product-oats-2.jpg',
+                    'images/product-oats-3.jpg',
+                    'images/product-oats-4.jpg'
+                ]
+            ],
+            'features' => [
+                'High in fiber and protein',
+                'No artificial preservatives',
+                'Source of essential vitamins and minerals',
+                'Supports digestive health'
+            ],
+            'meta' => [
+                'weight' => '500g',
+                'sku' => 'AHV-001',
+                'availability' => 'In Stock',
+                'dietary' => 'Vegan, Gluten-Free'
+            ]
+        ];
+
+        $relatedProducts = collect([
+            (object)[
+                'id' => 2,
+                'slug' => 'tom-brown-mix',
+                'name' => 'Tom Brown Mix',
+                'description' => 'A nutritious blend of roasted corn, millet, and groundnuts.',
+                'price' => 15.99,
+                'image' => 'images/product-tombrown.jpg',
+                'category' => 'Tom Brown'
+            ],
+            (object)[
+                'id' => 3,
+                'slug' => 'grain-cereal',
+                'name' => 'Grain Cereal',
+                'description' => 'A delicious multi-grain cereal that provides essential nutrients.',
+                'price' => 14.99,
+                'image' => 'images/product-cereal.jpg',
+                'category' => 'Cereal Mixes'
+            ],
+            (object)[
+                'id' => 4,
+                'slug' => 'organic-millet',
+                'name' => 'Organic Millet',
+                'description' => 'Nutrient-rich millet grains that are gluten-free and easy to digest.',
+                'price' => 11.99,
+                'image' => 'images/product-millet.jpg',
+                'category' => 'Grains'
+            ],
+            (object)[
+                'id' => 5,
+                'slug' => 'crunchy-granola',
+                'name' => 'Crunchy Granola',
+                'description' => 'A delicious blend of oats, nuts, and honey for a perfect breakfast.',
+                'price' => 16.99,
+                'image' => 'images/product-granola.jpg',
+                'category' => 'Breakfast'
+            ]
+        ]);
+
+        return view('product-detail', compact('product', 'relatedProducts'));
+    }
+    
     public function about()
     {
         // For now, redirect to home until about page is created

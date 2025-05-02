@@ -167,7 +167,7 @@
         <div class="container">
             <div class="section-header">
                 <p class="section-subtitle">FAQ</p>
-                <h2 class="section-title">Frequently Asked Questions</h2>
+                    <h2 class="section-title">Frequently Asked Questions</h2>
                 <p class="section-description">Find answers to common questions about our products and services</p>
             </div>
             
@@ -226,80 +226,80 @@
         <div class="container">
             <div class="section-header">
                 <p class="section-subtitle">Social Media</p>
-                <h2 class="section-title">Connect With Us</h2>
+                    <h2 class="section-title">Connect With Us</h2>
                 <p class="section-description">Follow us on social media for updates, recipes, and more</p>
             </div>
             
-            <div class="social-grid">
-                <div class="row g-3">
-                    <!-- Social Media 1 -->
-                    <div class="col-md-4 col-6" data-aos="zoom-in">
-                        <a href="#" class="social-card facebook">
-                            <div class="social-icon">
+                    <div class="social-grid">
+                        <div class="row g-3">
+                            <!-- Social Media 1 -->
+                            <div class="col-md-4 col-6" data-aos="zoom-in">
+                                <a href="#" class="social-card facebook">
+                                    <div class="social-icon">
                                 <i class="fab fa-facebook-f"></i>
+                                    </div>
+                                    <h4>Facebook</h4>
+                                    <p>@AhavorFoods</p>
+                                </a>
                             </div>
-                            <h4>Facebook</h4>
-                            <p>@AhavorFoods</p>
-                        </a>
-                    </div>
-                    
-                    <!-- Social Media 2 -->
-                    <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="100">
-                        <a href="#" class="social-card instagram">
-                            <div class="social-icon">
+                            
+                            <!-- Social Media 2 -->
+                            <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="100">
+                                <a href="#" class="social-card instagram">
+                                    <div class="social-icon">
                                 <i class="fab fa-instagram"></i>
+                                    </div>
+                                    <h4>Instagram</h4>
+                                    <p>@AhavorFoods</p>
+                                </a>
                             </div>
-                            <h4>Instagram</h4>
-                            <p>@AhavorFoods</p>
-                        </a>
-                    </div>
-                    
-                    <!-- Social Media 3 -->
-                    <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="200">
-                        <a href="#" class="social-card twitter">
-                            <div class="social-icon">
+                            
+                            <!-- Social Media 3 -->
+                            <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="200">
+                                <a href="#" class="social-card twitter">
+                                    <div class="social-icon">
                                 <i class="fab fa-twitter"></i>
+                                    </div>
+                                    <h4>Twitter</h4>
+                                    <p>@AhavorFoods</p>
+                                </a>
                             </div>
-                            <h4>Twitter</h4>
-                            <p>@AhavorFoods</p>
-                        </a>
-                    </div>
-                    
-                    <!-- Social Media 4 -->
-                    <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="300">
-                        <a href="#" class="social-card youtube">
-                            <div class="social-icon">
+                            
+                            <!-- Social Media 4 -->
+                            <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="300">
+                                <a href="#" class="social-card youtube">
+                                    <div class="social-icon">
                                 <i class="fab fa-youtube"></i>
+                                    </div>
+                                    <h4>YouTube</h4>
+                                    <p>Ahavor Foods Channel</p>
+                                </a>
                             </div>
-                            <h4>YouTube</h4>
-                            <p>Ahavor Foods Channel</p>
-                        </a>
-                    </div>
-                    
-                    <!-- Social Media 5 -->
-                    <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="400">
-                        <a href="#" class="social-card linkedin">
-                            <div class="social-icon">
+                            
+                            <!-- Social Media 5 -->
+                            <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="400">
+                                <a href="#" class="social-card linkedin">
+                                    <div class="social-icon">
                                 <i class="fab fa-linkedin-in"></i>
+                                    </div>
+                                    <h4>LinkedIn</h4>
+                                    <p>Ahavor Foods Ltd</p>
+                                </a>
                             </div>
-                            <h4>LinkedIn</h4>
-                            <p>Ahavor Foods Ltd</p>
-                        </a>
-                    </div>
-                    
-                    <!-- Social Media 6 -->
-                    <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="500">
-                        <a href="#" class="social-card pinterest">
-                            <div class="social-icon">
+                            
+                            <!-- Social Media 6 -->
+                            <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="500">
+                                <a href="#" class="social-card pinterest">
+                                    <div class="social-icon">
                                 <i class="fab fa-pinterest-p"></i>
+                                    </div>
+                                    <h4>Pinterest</h4>
+                                    <p>@AhavorFoods</p>
+                                </a>
                             </div>
-                            <h4>Pinterest</h4>
-                            <p>@AhavorFoods</p>
-                        </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
     </section>
 
     <!-- Newsletter Section -->

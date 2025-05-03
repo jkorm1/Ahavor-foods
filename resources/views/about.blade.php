@@ -93,8 +93,8 @@
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section class="about-team">
+     <!-- Team Section -->
+     <section class="about-team">
         <div class="container">
             <div class="section-header">
                 <p class="section-subtitle">Our Team</p>
@@ -103,62 +103,25 @@
             </div>
             
             <div class="team-grid">
-                <!-- Team Member 1 -->
-                <div class="team-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="team-image">
-                        <img src="{{ asset('images/team-1.jpg') }}" alt="John Doe" class="blur-load">
-                    </div>
-                    <div class="team-content">
-                        <h3 class="team-name">Christian Frimpong</h3>
-                        <p class="team-position">Founder & CEO</p>
-                        <p class="team-description">
-                            With over 15 years of experience in the food industry, John leads our team with passion and vision.
-                        </p>
-                        <div class="team-social">
-                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                @foreach($teamMembers as $member)
+                    <div class="team-card" data-aos="fade-up">
+                        <div class="team-image">
+                            <img src="{{ asset($member->image_path) }}" alt="{{ $member->name }}" class="blur-load">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="team-name">{{ $member->name }}</h3>
+                            <p class="team-position">{{ $member->position }}</p>
+                            <p class="team-description">
+                                {{ $member->bio }}
+                            </p>
+                            <div class="team-social">
+                                @if($member->linkedin) <a href="{{ $member->linkedin }}" class="social-link"><i class="fab fa-linkedin-in"></i></a> @endif
+                                @if($member->twitter) <a href="{{ $member->twitter }}" class="social-link"><i class="fab fa-twitter"></i></a> @endif
+                                @if($member->instagram) <a href="{{ $member->instagram }}" class="social-link"><i class="fab fa-instagram"></i></a> @endif
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Team Member 2 -->
-                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="team-image">
-                        <img src="{{ asset('images/team-2.jpg') }}" alt="Jane Smith" class="blur-load">
-                    </div>
-                    <div class="team-content">
-                        <h3 class="team-name">Samuela Adjei</h3>
-                        <p class="team-position">Head of Product Development</p>
-                        <p class="team-description">
-                            Jane brings her expertise in nutrition and food science to create our innovative products.
-                        </p>
-                        <div class="team-social">
-                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Team Member 3 -->
-                <div class="team-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="team-image">
-                        <img src="{{ asset('images/team-3.jpg') }}" alt="Mike Johnson" class="blur-load">
-                    </div>
-                    <div class="team-content">
-                        <h3 class="team-name">Josephine  Johnson</h3>
-                        <p class="team-position">Operations Manager</p>
-                        <p class="team-description">
-                            Mike ensures that our production processes meet the highest standards of quality and efficiency.
-                        </p>
-                        <div class="team-social">
-                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

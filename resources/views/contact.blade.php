@@ -64,8 +64,9 @@
                         <h3>Send Us a Message</h3>
                         <p>Fill out the form below and we'll get back to you as soon as possible.</p>
                         
-                        <form id="contactForm" action="{{ route('contact.submit') }}" method="POST">
+                        <form id="contactForm" action="{{ route('contact') }}" method="POST">
                             @csrf
+                            
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <div class="form-floating">
@@ -117,12 +118,20 @@
                             <button type="submit" class="btn btn-primary">
                                 <i class="fas fa-paper-plane"></i> Send Message
                             </button>
-                            
+
                             @if(session('success'))
-                            <div class="form-response success">
-                                {{ session('success') }}
+                            <div class="alert alert-success">
+                                <i class="fas fa-check-circle"></i> {{ session('success') }}
                             </div>
                             @endif
+
+                            @if(session('newsletter_success'))
+                            <div class="alert alert-success">
+                                <i class="fas fa-check-circle"></i> {{ session('newsletter_success') }}
+                            </div>
+                            @endif
+
+
                             
                             @if($errors->any())
                             <div class="form-response error">
@@ -163,63 +172,41 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq-section">
+    @if($faqs->count() > 0)
+    <div class="faq-section">
         <div class="container">
             <div class="section-header">
                 <p class="section-subtitle">FAQ</p>
-                    <h2 class="section-title">Frequently Asked Questions</h2>
+                <h2 class="section-title">Frequently Asked Questions</h2>
                 <p class="section-description">Find answers to common questions about our products and services</p>
             </div>
             
             <div class="row">
                 <div class="col-lg-8 offset-lg-2" data-aos="fade-up">
                     <div class="accordion" id="faqAccordion">
-                        <!-- FAQ Item 1 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Where can I purchase Ahavor Foods products?
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Our products are available at major supermarkets and retail stores across Ghana, including Shoprite, Melcom, and Game. You can also purchase directly from our online store with delivery options available in select areas.
+                        @foreach($faqs as $index => $faq)
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading{{ $index }}">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $index }}" aria-expanded="false" aria-controls="collapse{{ $index }}">
+                                        {{ $faq->question }}
+                                    </button>
+                                </h2>
+                                <div id="collapse{{ $index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ $index }}" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        {{ $faq->answer }}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <!-- FAQ Item 2 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Are your products suitable for people with dietary restrictions?
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Many of our products are gluten-free, vegan, and made without artificial preservatives. Each product is clearly labeled with allergen information and dietary suitability. If you have specific dietary concerns, please check the product packaging or contact our customer service team for detailed information.
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- FAQ Item 3 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    How should I store your products?
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Our products should be stored in a cool, dry place away from direct sunlight. Once opened, please reseal the package tightly and consume within the recommended timeframe. For specific storage instructions, please refer to the packaging of each product.
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+@else
+    <p>No frequently asked questions available at the moment.</p>
+@endif
+
 
     <!-- Social Media Section -->
     <section class="social-media-section">
@@ -318,3 +305,16 @@
         </div>
     </section>
 @endsection 
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Stop default refresh
+        alert('Form is submitting...'); // Show confirmation
+        this.submit(); // Now, submit the form to Laravel
+    });
+});
+</script>
+
+
+

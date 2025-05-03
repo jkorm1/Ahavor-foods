@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section class="hero" style="background-image: url('{{ asset('images/hero-bg.jpg') }}');">
+    <section class="hero" style="background-image: url('{{ asset('images/aha.PNG') }}');">
         <div class="container">
             <div class="hero-content" data-aos="fade-right" data-aos-delay="200">
                 <p class="hero-subtitle">Welcome to Ahavor Foods</p>
@@ -18,7 +18,7 @@
         </div>
     </section>
     
-    <!-- Products Section -->
+    <!-- Products Section (Now Dynamic) -->
     <section class="section">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -28,64 +28,21 @@
             </div>
             
             <div class="products-grid">
-                <!-- Product 1 -->
-                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="product-image-container">
-                        <img src="{{ asset('images/oat.jpg') }}" alt="Oat Product" class="product-image blur-load">
-                        <div class="product-badge">Best Seller</div>
+                @foreach($featuredProducts as $product)
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="product-image-container">
+                            <img src="{{ asset($product->image_path) }}" alt="{{ $product->name }}" class="product-image blur-load">
+                            <div class="product-badge">Best Seller</div>
+                        </div>
+                        <div class="product-content">
+                            <p class="product-category">{{ $product->category->name }}</p>
+                            <h3 class="product-title">{{ $product->name }}</h3>
+                            <p class="product-description">{{ $product->description }}</p>
+                            <p class="product-price">GH₵ {{ $product->sale_price ?? $product->regular_price }}</p>
+                            <a href="#" class="product-button">Add to Cart</a>
+                        </div>
                     </div>
-                    <div class="product-content">
-                        <p class="product-category">Oat Products</p>
-                        <h3 class="product-title">Premium Oat Mix</h3>
-                        <p class="product-description">Our premium oat mix is packed with nutrients and perfect for a healthy breakfast.</p>
-                        <p class="product-price">GH₵ 20.00</p>
-                        <a href="#" class="product-button">Add to Cart</a>
-                    </div>
-                </div>
-                
-                <!-- Product 2 -->
-                <div class="product-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="product-image-container">
-                        <img src="{{ asset('images/tombrown.jpg') }}" alt="Tom Brown" class="product-image blur-load">
-                        <div class="product-badge">New</div>
-                    </div>
-                    <div class="product-content">
-                        <p class="product-category">Tom Brown</p>
-                        <h3 class="product-title">Tom Brown Mix</h3>
-                        <p class="product-description">A nutritious blend of roasted corn, millet, and groundnuts for all ages.</p>
-                        <p class="product-price">GH₵ 30.00</p>
-                        <a href="#" class="product-button">Add to Cart</a>
-                    </div>
-                </div>
-                
-                <!-- Product 3 -->
-                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="product-image-container">
-                        <img src="{{ asset('images/cereal.jpg') }}" alt="Cereal Mix" class="product-image blur-load">
-                    </div>
-                    <div class="product-content">
-                        <p class="product-category">Cereal Mixes</p>
-                        <h3 class="product-title">Multi-Grain Cereal</h3>
-                        <p class="product-description">A delicious mix of multiple grains for a complete nutritional breakfast.</p>
-                        <p class="product-price">GH₵ 28.00</p>
-                        <a href="#" class="product-button">Add to Cart</a>
-                    </div>
-                </div>
-                
-                <!-- Product 4 -->
-                <div class="product-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="product-image-container">
-                        <img src="{{ asset('images/product-4.jpg') }}" alt="Nutritional Supplement" class="product-image blur-load">
-                        <div class="product-badge">Popular</div>
-                    </div>
-                    <div class="product-content">
-                        <p class="product-category">Supplements</p>
-                        <h3 class="product-title">Nutritional Supplement</h3>
-                        <p class="product-description">A special blend of nutrients to supplement your daily dietary needs.</p>
-                        <p class="product-price">GH₵ 35.00</p>
-                        <a href="#" class="product-button">Add to Cart</a>
-                    </div>
-                </div>
+                @endforeach
             </div>
             
             <div class="text-center" style="margin-top: 50px;" data-aos="fade-up">
@@ -141,7 +98,7 @@
         </div>
     </section>
     
-    <!-- Testimonials Section -->
+    <!-- Testimonials Section (Now Dynamic) -->
     <section class="section testimonials-section">
         <div class="container testimonials-container">
             <div class="section-header" data-aos="fade-up">
@@ -151,62 +108,26 @@
             </div>
             
             <div class="testimonials-grid">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                    <p class="testimonial-content">"I've been using Ahavor's Premium Oat Mix for breakfast every day for the past month, and I've noticed a significant improvement in my energy levels throughout the day. The taste is amazing too!"</p>
-                    <div class="testimonial-author">
-                        <img src="{{ asset('images/client-1.jpeg') }}" alt="Sarah Johnson" class="author-image">
-                        <div class="author-info">
-                            <h4 class="author-name">Joseph Korm</h4>
-                            <p class="author-title">CEO of Star Pops</p>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                @foreach($testimonials as $testimonial)
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                        <p class="testimonial-content">"{{ $testimonial->message }}"</p>
+                        <div class="testimonial-author">
+                            <img src="{{ asset($testimonial->image_path) }}" alt="{{ $testimonial->name }}" class="author-image">
+                            <div class="author-info">
+                                <h4 class="author-name">{{ $testimonial->name }}</h4>
+                                <p class="author-title">{{ $testimonial->title }}</p>
+                                <div class="testimonial-rating">
+                                    @for ($i = 0; $i < floor($testimonial->rating); $i++)
+                                        <i class="fas fa-star"></i>
+                                    @endfor
+                                    @if ($testimonial->rating - floor($testimonial->rating) > 0)
+                                        <i class="fas fa-star-half-alt"></i>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                    <p class="testimonial-content">"As a nutritionist, I'm very particular about the products I recommend to my clients. Ahavor Foods' Tom Brown Mix is one of my top recommendations for its nutritional value and delicious taste."</p>
-                    <div class="testimonial-author">
-                        <img src="{{ asset('images/client-3.jpeg') }}" alt="Dr. Michael Owusu" class="author-image">
-                        <div class="author-info">
-                            <h4 class="author-name">Min. Shantel</h4>
-                            <p class="author-title">Nutritionist</p>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
-                    <p class="testimonial-content">"My children are very picky eaters, but they absolutely love Ahavor's Multi-Grain Cereal. As a mother, I'm happy that they're getting all the nutrients they need in a product they actually enjoy eating."</p>
-                    <div class="testimonial-author">
-                        <img src="{{ asset('images/client-2.jpeg') }}" alt="Ama Mensah" class="author-image">
-                        <div class="author-info">
-                            <h4 class="author-name">Christian Frimpong</h4>
-                            <p class="author-title">Founder of global</p>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -222,6 +143,7 @@
         </div>
     </section>
 @endsection
+
 
 @section('additional_scripts')
 <script>

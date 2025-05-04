@@ -20,7 +20,7 @@
                 <div class="blog-detail-main">
                     <!-- Featured Image -->
                     <div class="blog-detail-image">
-                        <img src="{{ asset($post->image) }}" alt="{{ $post->title }}" class="blur-load">
+                        <img src="{{ asset($post->image_path) }}" alt="{{ $post->title }}" class="blur-load">
                     </div>
                     
                     <!-- Post Meta -->
@@ -57,7 +57,8 @@
                             <div class="related-post-card">
                                 <div class="related-post-image">
                                     <a href="{{ route('blog.detail', $relatedPost->slug) }}">
-                                        <img src="{{ asset($relatedPost->image) }}" alt="{{ $relatedPost->title }}" class="blur-load">
+                                    <img src="{{ filter_var($relatedPost->image_path, FILTER_VALIDATE_URL) ? $relatedPost->image_path : asset($relatedPost->image_path) }}" alt="{{ $relatedPost->title }}" class="blur-load">
+
                                     </a>
                                 </div>
                                 <div class="related-post-content">

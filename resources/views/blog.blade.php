@@ -33,15 +33,14 @@
                         <div class="blog-card" data-aos="fade-up">
                             <div class="blog-image">
                                 <a href="{{ route('blog.detail', $post->slug) }}">
-                                    <img src="{{ asset($post->image) }}" alt="{{ $post->title }}" class="blur-load">
+                                <img src="{{ filter_var($post->image_path, FILTER_VALIDATE_URL) ? $post->image_path : asset($post->image_path) }}" alt="{{ $post->title }}" class="blur-load">
+
                                 </a>
                                 <div class="blog-category">{{ $post->category->name ?? 'Uncategorized' }}</div>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-meta">
-                                <i class="far fa-calendar"></i> {{ $recentPost->published_at ? \Carbon\Carbon::parse($recentPost->published_at)->format('M d, Y') : 'Not Published' }}
-
-
+                                <span><i class="far fa-calendar"></i> {{ $post->published_at ? \Carbon\Carbon::parse($post->published_at)->format('M d, Y') : 'Not Published' }}</span>
 
 
                                     <span><i class="far fa-user"></i> {{ $post->author->name }}</span>

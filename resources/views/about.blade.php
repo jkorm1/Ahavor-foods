@@ -30,7 +30,7 @@
                     </p>
                 </div>
                 <div class="about-story-image">
-                    <img src="{{ asset('images/about-story.jpg') }}" alt="Ahavor Foods Story" class="blur-load">
+                    <img src="{{ asset('images/team.jpg') }}" alt="Ahavor Foods Story" class="blur-load">
                 </div>
             </div>
         </div>
@@ -87,6 +87,28 @@
                     <h3 class="value-title">Community Focus</h3>
                     <p class="value-description">
                         We support local communities and empower young entrepreneurs through our business.
+                    </p>
+                </div>
+
+                <!-- Value 5 -->
+                <div class="value-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="value-icon">
+                    <i class="fas fa-balance-scale"></i> 
+                    </div>
+                    <h3 class="value-title">Impact Driven</h3>
+                    <p class="value-description">
+                        We believe the youth is a force, we have a treasure which we are not aware of, that is what we wannt to bring to awareness.
+                    </p>
+                </div>
+
+                <!-- Value 5 -->
+                <div class="value-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="value-icon">
+                    <i class="fas fa-cross"></i>
+                    </div>
+                    <h3 class="value-title">Impact Driven</h3>
+                    <p class="value-description">
+                    There is no better place that the feet of God. We want the ehole world to see and know that christ is the only true way.
                     </p>
                 </div>
             </div>

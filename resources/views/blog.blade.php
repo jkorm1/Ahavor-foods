@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
-@section('title', isset($category) ? $category->name : 'Blog')
+@section('title', $category->name ?? 'Blog')
+
 
     @section('content')
     <!-- Breadcrumbs -->
@@ -34,11 +35,15 @@
                                 <a href="{{ route('blog.detail', $post->slug) }}">
                                     <img src="{{ asset($post->image) }}" alt="{{ $post->title }}" class="blur-load">
                                 </a>
-                                <div class="blog-category">{{ $post->category->name }}</div>
+                                <div class="blog-category">{{ $post->category->name ?? 'Uncategorized' }}</div>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-meta">
-                                    <span><i class="far fa-calendar"></i> {{ $post->created_at->format('M d, Y') }}</span>
+                                <i class="far fa-calendar"></i> {{ $recentPost->published_at ? \Carbon\Carbon::parse($recentPost->published_at)->format('M d, Y') : 'Not Published' }}
+
+
+
+
                                     <span><i class="far fa-user"></i> {{ $post->author->name }}</span>
                                 </div>
                                 <h3 class="blog-title">
@@ -100,7 +105,7 @@
                                         <a href="{{ route('blog.detail', $recentPost->slug) }}">{{ Str::limit($recentPost->title, 40) }}</a>
                                     </h4>
                                     <div class="recent-post-date">
-                                        <i class="far fa-calendar"></i> {{ $recentPost->created_at->format('M d, Y') }}
+                                    <i class="far fa-calendar"></i> {{ $post->published_at ? \Carbon\Carbon::parse($post->published_at)->format('M d, Y') : 'Not Published' }}
                                     </div>
                                 </div>
                             </div>

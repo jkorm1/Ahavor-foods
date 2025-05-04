@@ -7,10 +7,15 @@ use App\Models\Tag;
 
 class TagSeeder extends Seeder
 {
-    public function run()
+    public function run(): void
     {
-        Tag::create(['name' => 'Healthy', 'slug' => 'healthy']);
-        Tag::create(['name' => 'Nutrition', 'slug' => 'nutrition']);
-        Tag::create(['name' => 'Breakfast', 'slug' => 'breakfast']);
+        Tag::insert([
+            ['name' => 'Nutrition', 'slug' => 'nutrition'],
+            ['name' => 'Organic', 'slug' => 'organic'],
+            ['name' => 'Health Tips', 'slug' => 'health-tips'],
+            ['name' => 'Food Science', 'slug' => 'food-science'],
+            ['name' => 'Wellness', 'slug' => 'wellness'],
+        ]);
+        
     }
 }

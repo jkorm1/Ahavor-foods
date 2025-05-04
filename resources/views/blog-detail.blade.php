@@ -25,7 +25,8 @@
                     
                     <!-- Post Meta -->
                     <div class="blog-detail-meta">
-                        <span><i class="far fa-calendar"></i> {{ $post->created_at->format('M d, Y') }}</span>
+                        <span><i class="far fa-calendar"></i> {{ $post->published_at ? \Carbon\Carbon::parse($post->published_at)->format('M d, Y') : 'Not Published' }}</span>
+
                         <span><i class="far fa-user"></i> {{ $post->author->name }}</span>
                         <span><i class="far fa-folder"></i> {{ $post->category->name }}</span>
                     </div>
@@ -64,7 +65,8 @@
                                         <a href="{{ route('blog.detail', $relatedPost->slug) }}">{{ $relatedPost->title }}</a>
                                     </h4>
                                     <div class="related-post-date">
-                                        <i class="far fa-calendar"></i> {{ $relatedPost->created_at->format('M d, Y') }}
+                                    <i class="far fa-calendar"></i> {{ $post->published_at ? \Carbon\Carbon::parse($post->published_at)->format('M d, Y') : 'Not Published' }}
+
                                     </div>
                                 </div>
                             </div>
@@ -116,7 +118,9 @@
                                         <a href="{{ route('blog.detail', $recentPost->slug) }}">{{ Str::limit($recentPost->title, 40) }}</a>
                                     </h4>
                                     <div class="recent-post-date">
-                                        <i class="far fa-calendar"></i> {{ $recentPost->created_at->format('M d, Y') }}
+                                    <i class="far fa-calendar"></i> 
+                                        {{ $recentPost->created_at ? \Carbon\Carbon::parse($recentPost->created_at)->format('M d, Y') : 'Not Published' }}
+
                                     </div>
                                 </div>
                             </div>

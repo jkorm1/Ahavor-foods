@@ -43,14 +43,20 @@ class BlogController extends Controller
 
     public function show($slug)
     {
-        $post = Post::where('slug', $slug)->with('category', 'author', 'tags')->published()->firstOrFail();
+        $post = Post::where('slug', $slug)->with('category', 'author', 'tags')->firstOrFail();
         $relatedPosts = Post::where('category_id', $post->category_id)
-            ->where('id', '!=', $post->id)
-            ->published()
-            ->latest()
-            ->limit(3)
-            ->get();
-
-        return view('blog-detail', compact('post', 'relatedPosts'));
+                            ->where('id', '!=', $post->id)
+                            ->latest()
+                            ->limit(3)
+                            ->get();
+        
+        $categories = Category::withCount('posts')->get(); // ✅ Ensure categories exist
+        $tags = Tag::withCount('posts')->orderBy('posts_count', 'desc')->limit(10)->get(); // ✅ Fetch tags
+        $recentPosts = Post::latest()->published()->limit(5)->get(); // ✅ Add recent posts
+    
+        return view('blog-detail', compact('post', 'relatedPosts', 'categories', 'tags', 'recentPosts'));
     }
+    
+    
+
 }

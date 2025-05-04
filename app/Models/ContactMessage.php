@@ -9,5 +9,7 @@ class ContactMessage extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'email', 'subject', 'department', 'message', 'privacy'];
+    protected $table = 'contact_messages'; // ✅ Links the model to the correct table
+
+    protected $fillable = ['name', 'email', 'subject', 'department', 'message', 'privacy']; // ✅ Defines allowed fields
 }

@@ -111,7 +111,7 @@
                             </div>
                             
                             <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="privacy" required>
+                                <input type="checkbox" class="form-check-input" id="privacy" name="privacy" required>
                                 <label class="form-check-label" for="privacy">I agree to the <a href="#">privacy policy</a></label>
                             </div>
                             
@@ -120,28 +120,29 @@
                             </button>
 
                             @if(session('success'))
-                            <div class="alert alert-success">
-                                <i class="fas fa-check-circle"></i> {{ session('success') }}
-                            </div>
+                                <div class="alert alert-success">
+                                    <i class="fas fa-check-circle"></i> {{ session('success') }}
+                                </div>
                             @endif
 
-                            @if(session('newsletter_success'))
-                            <div class="alert alert-success">
-                                <i class="fas fa-check-circle"></i> {{ session('newsletter_success') }}
-                            </div>
+                            @if(session('error'))
+                                <div class="alert alert-danger">
+                                    <i class="fas fa-exclamation-circle"></i> {{ session('error') }}
+                                </div>
                             @endif
+                            @if($errors->has('name') || $errors->has('email') || $errors->has('subject') || $errors->has('department') || $errors->has('message') || $errors->has('privacy'))
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                             @endif
 
 
-                            
-                            @if($errors->any())
-                            <div class="form-response error">
-                                <ul>
-                                    @foreach($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
+                           
+
                         </form>
                     </div>
                 </div>
@@ -302,19 +303,30 @@
                     <button type="submit" class="newsletter-button">Subscribe</button>
                 </form>
             </div>
+            @if(session('newsletter_success'))
+                <div class="alert alert-success">
+                <i class="fas fa-check-circle"></i> {{ session('newsletter_success') }}
+                </div>
+            @endif
+            @if($errors->has('email'))
+                <div class="alert alert-danger">
+                    <i class="fas fa-exclamation-circle"></i> {{ $errors->first('email') }}
+                </div>
+            @endif
+
         </div>
     </section>
+
 @endsection 
+
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Stop default refresh
-        alert('Form is submitting...'); // Show confirmation
-        this.submit(); // Now, submit the form to Laravel
+        event.preventDefault(); // ✅ Stops page refresh
+        alert('Form is submitting...'); // ✅ Debug message to confirm button works
+        this.submit(); // ✅ Manually submits the form after validation
     });
 });
 </script>
-
-
-

@@ -10,7 +10,10 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = ['title', 'slug', 'excerpt', 'content', 'image_path', 'category_id', 'author_id'];
-
+    protected $casts = [
+        'published_at' => 'datetime',
+    ];
+    
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -25,4 +28,10 @@ class Post extends Model
     {
         return $this->belongsToMany(Tag::class);
     }
+
+    public function scopePublished($query)
+    {
+        return $query->whereNotNull('published_at');
+    }
+
 }

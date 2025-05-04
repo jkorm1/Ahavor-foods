@@ -10,11 +10,16 @@ class NewsletterController extends Controller
     public function subscribe(Request $request)
     {
         $request->validate([
-            'email' => 'required|email|unique:newsletter_subscribers,email'
+            'email' => 'required|email|unique:newsletter_subscribers,email',
+        ], [
+            'email.unique' => 'This email is already subscribed!',
+        ]);
+        
+
+        NewsletterSubscriber::create([
+            'email' => $request->input('email'),
         ]);
 
-        NewsletterSubscriber::create($request->all());
-
-        return redirect()->back()->with('success', 'Thank you for subscribing to our newsletter!');
+        return redirect()->back()->with('newsletter_success', 'Thank you for subscribing to our newsletter!');
     }
 }

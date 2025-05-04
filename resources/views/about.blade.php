@@ -111,18 +111,30 @@
                         <div class="team-content">
                             <h3 class="team-name">{{ $member->name }}</h3>
                             <p class="team-position">{{ $member->position }}</p>
-                            <p class="team-description">
-                                {{ $member->bio }}
-                            </p>
+                            <p class="team-description">{{ $member->bio }}</p>
+                            
                             <div class="team-social">
-                                @if($member->linkedin) <a href="{{ $member->linkedin }}" class="social-link"><i class="fab fa-linkedin-in"></i></a> @endif
-                                @if($member->twitter) <a href="{{ $member->twitter }}" class="social-link"><i class="fab fa-twitter"></i></a> @endif
-                                @if($member->instagram) <a href="{{ $member->instagram }}" class="social-link"><i class="fab fa-instagram"></i></a> @endif
+                                @if(isset($member->social_links['linkedin'])) 
+                                    <a href="{{ $member->social_links['linkedin'] }}" class="social-link"><i class="fab fa-linkedin-in"></i></a> 
+                                @endif
+
+                                @if(isset($member->social_links['twitter'])) 
+                                    <a href="{{ $member->social_links['twitter'] }}" class="social-link"><i class="fab fa-twitter"></i></a> 
+                                @endif
+
+                                @if(isset($member->social_links['instagram'])) 
+                                    <a href="{{ $member->social_links['instagram'] }}" class="social-link"><i class="fab fa-instagram"></i></a> 
+                                @endif
+                                
+                                @if(isset($member->social_links['facebook'])) 
+                                    <a href="{{ $member->social_links['facebook'] }}" class="social-link"><i class="fab fa-facebook-f"></i></a> 
+                                @endif
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
+
         </div>
     </section>
 

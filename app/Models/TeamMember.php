@@ -9,5 +9,11 @@ class TeamMember extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'position', 'bio', 'image_path', 'social_links'];
+    protected $table = 'team_members'; // ✅ Explicitly define the table name
+
+    protected $fillable = ['name', 'position', 'bio', 'image_path', 'social_links']; // ✅ Fields allowed for mass assignment
+
+    protected $casts = [
+        'social_links' => 'array', // ✅ Treat social_links as JSON (decoded into an array)
+    ];
 }

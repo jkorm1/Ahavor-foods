@@ -26,6 +26,10 @@ Route::post('/contact', [ContactController::class, 'submit'])->name('contact'); 
 Route::get('/products', [ProductController::class, 'index'])->name('products');
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.detail');
+Route::get('/blog/category/{slug}', [BlogController::class, 'index'])->name('blog.category');
+Route::get('/blog/tag/{slug}', [BlogController::class, 'index'])->name('blog.tag');
 
 // Product Review Submission
 Route::post('/products/{slug}/review', [ProductController::class, 'storeReview'])->name('product.review');
+Route::get('/products/{slug}', [ProductController::class, 'show'])->name('product.detail');

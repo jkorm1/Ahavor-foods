@@ -46,8 +46,8 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
                     </div>
                     <span class="rating-count">{{ $product->rating }} / 5</span>
                 </div>
@@ -69,14 +69,25 @@
                 </div>
 
                 <!-- Add to Cart & Wishlist -->
+                <!-- Update the product actions section in your product-detail.blade.php -->
                 <div class="product-actions">
-                    <div class="quantity-selector">
-                        <button class="quantity-btn">-</button>
-                        <input type="number" class="quantity-input" value="1">
-                        <button class="quantity-btn">+</button>
-                    </div>
-                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                    <button class="wishlist-btn"><i class="fas fa-heart"></i></button>
+                    <form action="{{ route('cart.add') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <div class="quantity-selector">
+                            <button type="button" class="quantity-btn minus-btn">-</button>
+                            <input type="number" name="quantity" class="quantity-input" value="1" min="1" max="{{ $product->stock }}">
+                            <button type="button" class="quantity-btn plus-btn">+</button>
+                        </div>
+                        <div class="action-buttons">
+                            <button type="submit" onclick="this.closest('form').submit();" class="product-button">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+
+                            </button>
+                            <button type="button" class="wishlist-btn"><i class="fas fa-heart"></i></button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -161,3 +172,31 @@
     </div>
 </section>
 @endsection
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const minusBtns = document.querySelectorAll('.minus-btn');
+        const plusBtns = document.querySelectorAll('.plus-btn');
+
+        minusBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const input = this.closest('.quantity-selector').querySelector('.quantity-input');
+                let value = parseInt(input.value);
+                if (value > 1) {
+                    input.value = value - 1;
+                    input.dispatchEvent(new Event('input')); // 🚀 Forces the browser to visually update
+                }
+            });
+        });
+
+        plusBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const input = this.closest('.quantity-selector').querySelector('.quantity-input');
+                let value = parseInt(input.value);
+                input.value = value + 1;
+                input.dispatchEvent(new Event('input')); // 🚀 Forces the browser to visually update
+            });
+        });
+    });
+</script>

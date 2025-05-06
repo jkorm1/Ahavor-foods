@@ -11,8 +11,23 @@ class ProductController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $products = Product::paginate(12); // Display products dynamically with pagination
+        $products = Product::with('category')->paginate(12); // Added with('category') for eager loading
         return view('products', compact('products', 'categories'));
+    }
+
+    public function category($slug)
+    {
+        $category = Category::where('slug', $slug)->firstOrFail();
+        
+        $products = Product::with('category')
+                    ->whereHas('category', function($q) use ($category) {
+                        $q->where('id', $category->id);
+                    })
+                    ->paginate(12);
+        
+        $categories = Category::all();
+        
+        return view('products', compact('products', 'categories', 'category'));
     }
 
     public function show($slug)

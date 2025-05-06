@@ -4,15 +4,16 @@
 
 @section('content')
 <!-- Products Hero Section -->
+<!-- Products Hero Section -->
 <section class="products-hero">
     <div class="container">
         <div class="products-hero-content">
             <h1 class="products-hero-title">Our Products</h1>
             <p class="products-hero-description">Discover our range of nutritious and delicious products.</p>
             <div class="products-filter">
-                <button class="filter-button active">All Products</button>
-                @foreach($categories as $category)
-                    <button class="filter-button">{{ $category->name }}</button>
+                <a href="{{ route('products') }}" class="filter-button {{ !isset($category) ? 'active' : '' }}">All Products</a>
+                @foreach($categories as $cat)
+                    <a href="{{ route('products.category', $cat->slug) }}" class="filter-button {{ isset($category) && $category->id == $cat->id ? 'active' : '' }}">{{ $cat->name }}</a>
                 @endforeach
             </div>
         </div>

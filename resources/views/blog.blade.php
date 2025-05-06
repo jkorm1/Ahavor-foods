@@ -101,7 +101,7 @@
                             <div class="recent-post-item">
                                 <div class="recent-post-image">
                                     <a href="{{ route('blog.detail', $recentPost->slug) }}">
-                                        <img src="{{ asset($recentPost->image) }}" alt="{{ $recentPost->title }}">
+                                    <img src="{{ filter_var($recentPost->image_path, FILTER_VALIDATE_URL) ? $recentPost->image_path : asset($recentPost->image_path) }}" alt="{{ $recentPost->title }}">
                                     </a>
                                 </div>
                                 <div class="recent-post-info">

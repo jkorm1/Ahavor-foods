@@ -12,10 +12,11 @@ return new class extends Migration
     public function up()
     {
         Schema::table('tags', function (Blueprint $table) {
-            $table->string('slug')->unique()->after('name'); // ✅ Add 'slug' column
+            if (!Schema::hasColumn('tags', 'slug')) { // ✅ Prevents duplicate column creation
+                $table->string('slug')->unique()->after('name');
+            }
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -23,7 +24,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('tags', function (Blueprint $table) {
-            //
+            if (Schema::hasColumn('tags', 'slug')) { // ✅ Ensures rollback only if column exists
+                $table->dropColumn('slug');
+            }
         });
     }
 };

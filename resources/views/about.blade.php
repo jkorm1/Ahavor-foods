@@ -30,7 +30,7 @@
                     </p>
                 </div>
                 <div class="about-story-image">
-                    <img src="{{ asset('images/team.jpg') }}" alt="Ahavor Foods Story" class="blur-load">
+                    <img src="{{ asset('images/quote.png') }}" alt="Ahavor Foods Story" class="blur-load">
                 </div>
             </div>
         </div>
@@ -106,7 +106,7 @@
                     <div class="value-icon">
                     <i class="fas fa-cross"></i>
                     </div>
-                    <h3 class="value-title">Impact Driven</h3>
+                    <h3 class="value-title">Christ Driven</h3>
                     <p class="value-description">
                     There is no better place that the feet of God. We want the ehole world to see and know that christ is the only true way.
                     </p>

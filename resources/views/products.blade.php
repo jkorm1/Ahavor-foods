@@ -74,22 +74,30 @@
     </div>
 </section>
 
-<!-- Newsletter Section (Connected to the Database) -->
-<section class="py-16 bg-ahavor-orange/10">
-    <div class="container mx-auto px-4">
-        <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Stay Updated</h2>
-            <p class="text-lg text-gray-700 mb-8">
-                Subscribe to our newsletter to receive updates on new products.
-            </p>
-            <form action="{{ route('newsletter.subscribe') }}" method="POST" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-                @csrf
-                <input type="email" name="email" placeholder="Your Email Address" class="flex-1 px-4 py-3 rounded-md border border-gray-300">
-                <button type="submit" class="bg-ahavor-orange hover:bg-ahavor-gold text-white font-medium py-3 px-6 rounded-md">
-                    Subscribe
-                </button>
-            </form>
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2 class="newsletter-title">Stay Updated</h2>
+                <p class="newsletter-description"> Subscribe to our newsletter to receive updates on new products.</p>
+                
+                <form class="newsletter-form" action="{{ route('newsletter.subscribe') }}" method="POST">
+                    @csrf
+                    <input type="email" class="newsletter-input" name="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="newsletter-button">Subscribe</button>
+                </form>
+            </div>
+            @if(session('newsletter_success'))
+                <div class="alert alert-success">
+                <i class="fas fa-check-circle"></i> {{ session('newsletter_success') }}
+                </div>
+            @endif
+            @if($errors->has('email'))
+                <div class="alert alert-danger">
+                    <i class="fas fa-exclamation-circle"></i> {{ $errors->first('email') }}
+                </div>
+            @endif
+
         </div>
-    </div>
-</section>
+    </section>
 @endsection

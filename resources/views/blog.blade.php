@@ -29,31 +29,36 @@
             <div class="blog-container">
                 <div class="blog-main">
                     <div class="blog-grid">
+                    @if($posts->count() > 0)
                         @foreach($posts as $post)
-                        <div class="blog-card" data-aos="fade-up">
-                            <div class="blog-image">
-                                <a href="{{ route('blog.detail', $post->slug) }}">
-                                <img src="{{ filter_var($post->image_path, FILTER_VALIDATE_URL) ? $post->image_path : asset($post->image_path) }}" alt="{{ $post->title }}" class="blur-load">
+                            <div class="blog-card" data-aos="fade-up">
+                                <div class="blog-image">
+                                    <a href="{{ route('blog.detail', $post->slug) }}">
+                                    <img src="{{ filter_var($post->image_path, FILTER_VALIDATE_URL) ? $post->image_path : asset($post->image_path) }}" alt="{{ $post->title }}" class="blur-load">
 
-                                </a>
-                                <div class="blog-category">{{ $post->category->name ?? 'Uncategorized' }}</div>
-                            </div>
-                            <div class="blog-content">
-                                <div class="blog-meta">
-                                <span><i class="far fa-calendar"></i> {{ $post->published_at ? \Carbon\Carbon::parse($post->published_at)->format('M d, Y') : 'Not Published' }}</span>
-
-
-                                    <span><i class="far fa-user"></i> {{ $post->author->name }}</span>
+                                    </a>
+                                    <div class="blog-category">{{ $post->category->name ?? 'Uncategorized' }}</div>
                                 </div>
-                                <h3 class="blog-title">
-                                    <a href="{{ route('blog.detail', $post->slug) }}">{{ $post->title }}</a>
-                                </h3>
-                                <p class="blog-excerpt">{{ Str::limit($post->excerpt, 120) }}</p>
-                                <a href="{{ route('blog.detail', $post->slug) }}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                    <span><i class="far fa-calendar"></i> {{ $post->published_at ? \Carbon\Carbon::parse($post->published_at)->format('M d, Y') : 'Not Published' }}</span>
+
+
+                                        <span><i class="far fa-user"></i> {{ $post->author->name }}</span>
+                                    </div>
+                                    <h3 class="blog-title">
+                                        <a href="{{ route('blog.detail', $post->slug) }}">{{ $post->title }}</a>
+                                    </h3>
+                                    <p class="blog-excerpt">{{ Str::limit($post->excerpt, 120) }}</p>
+                                    <a href="{{ route('blog.detail', $post->slug) }}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
                             </div>
-                        </div>
                         @endforeach
-                    </div>
+                        @else
+                        <p>No results found for your search.</p>
+                    @endif
+                    
+                </div>
                     
                     <!-- Pagination -->
                     <div class="pagination-container">
@@ -104,7 +109,7 @@
                                         <a href="{{ route('blog.detail', $recentPost->slug) }}">{{ Str::limit($recentPost->title, 40) }}</a>
                                     </h4>
                                     <div class="recent-post-date">
-                                    <i class="far fa-calendar"></i> {{ $post->published_at ? \Carbon\Carbon::parse($post->published_at)->format('M d, Y') : 'Not Published' }}
+                                    <i class="far fa-calendar"></i> {{ $recentPost->published_at ? \Carbon\Carbon::parse($recentPost->published_at)->format('M d, Y') : 'Not Published' }}
                                     </div>
                                 </div>
                             </div>

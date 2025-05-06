@@ -4,17 +4,7 @@
 
 @section('content')
 <!-- Product Detail Hero -->
-<section class="product-detail-hero">
-    <div class="container">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('products') }}">Products</a></li>
-                <li class="breadcrumb-item active">{{ $product->name }}</li>
-            </ol>
-        </nav>
-    </div>
-</section>
+
 
 <!-- Product Detail Main -->
 <section class="product-detail-main">
@@ -35,7 +25,8 @@
                         <div class="product-thumbnails">
                             @foreach($product->images as $image)
                             <div class="thumbnail">
-                                <img src="{{ asset('images/' . $image->path) }}" alt="Thumbnail">
+                            <img src="{{ asset($image->path) }}" alt="Thumbnail">
+
                             </div>
                             @endforeach
                         </div>
@@ -115,7 +106,8 @@
         <div class="review-item">
             <div class="review-header">
                 <div class="reviewer-info">
-                    <img src="{{ asset('images/users/' . $review->user->avatar) }}" class="reviewer-avatar">
+                <img src="{{ asset($review->user->avatar ?? 'images/jay.jpg') }}" class="reviewer-avatar">
+
                     <div>
                         <p class="reviewer-name">{{ $review->user->name }}</p>
                         <p class="review-date">{{ $review->created_at->format('M d, Y') }}</p>

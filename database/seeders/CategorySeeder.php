@@ -9,8 +9,14 @@ class CategorySeeder extends Seeder
 {
     public function run()
     {
-        Category::create(['name' => 'Oat Products', 'slug' => 'oat-products']);
-        Category::create(['name' => 'Tom Brown', 'slug' => 'tom-brown']);
-        Category::create(['name' => 'Cereal Mixes', 'slug' => 'cereal-mixes']);
+        $categories = [
+            ['name' => 'Oat Products', 'slug' => 'oat-products'],
+            ['name' => 'Tom Brown', 'slug' => 'tom-brown'],
+            ['name' => 'Cereal Mixes', 'slug' => 'cereal-mixes'],
+        ];
+
+        foreach ($categories as $data) {
+            Category::firstOrCreate(['slug' => $data['slug']], $data);
+        }
     }
 }

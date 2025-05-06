@@ -2326,7 +2326,7 @@
         /* Product Detail Styles */
         .product-detail-hero {
             background-color: var(--light-orange);
-            padding: 40px 0;
+            padding: 130px 0;
             position: relative;
             overflow: hidden;
         }

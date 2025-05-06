@@ -11,19 +11,23 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('post_tag', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('post_id')->constrained()->onDelete('cascade');
-            $table->foreignId('tag_id')->constrained()->onDelete('cascade');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('post_tag')) { // ✅ Prevents duplicate table creation
+            Schema::create('post_tag', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('post_id')->constrained()->onDelete('cascade');
+                $table->foreignId('tag_id')->constrained()->onDelete('cascade');
+                $table->timestamps();
+            });
+        }
     }
-    
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('post_tag');
+        if (Schema::hasTable('post_tag')) { // ✅ Ensures rollback only if table exists
+            Schema::dropIfExists('post_tag');
+        }
     }
 };

@@ -11,19 +11,23 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('product_images', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            $table->string('path'); // Stores image file paths
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('product_images')) { // ✅ Prevents duplicate table creation
+            Schema::create('product_images', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('product_id')->constrained()->onDelete('cascade');
+                $table->string('path'); // Stores image file paths
+                $table->timestamps();
+            });
+        }
     }
-    
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_images');
+        if (Schema::hasTable('product_images')) { // ✅ Ensures rollback only if table exists
+            Schema::dropIfExists('product_images');
+        }
     }
 };

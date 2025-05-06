@@ -11,19 +11,22 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->timestamp('published_at')->nullable();
-        });
+        if (!Schema::hasColumn('posts', 'published_at')) { // ✅ Prevents duplicate column creation
+            Schema::table('posts', function (Blueprint $table) {
+                $table->timestamp('published_at')->nullable();
+            });
+        }
     }
-    
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::table('posts', function (Blueprint $table) {
-            //
-        });
+        if (Schema::hasColumn('posts', 'published_at')) { // ✅ Ensures rollback only if column exists
+            Schema::table('posts', function (Blueprint $table) {
+                $table->dropColumn('published_at');
+            });
+        }
     }
 };

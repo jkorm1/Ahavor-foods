@@ -11,23 +11,26 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('title');
-            $table->text('content');
-            $table->integer('rating');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('reviews')) { // ✅ Prevents duplicate table creation
+            Schema::create('reviews', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('product_id')->constrained()->onDelete('cascade');
+                $table->foreignId('user_id')->constrained()->onDelete('cascade');
+                $table->string('title');
+                $table->text('content');
+                $table->integer('rating');
+                $table->timestamps();
+            });
+        }
     }
-    
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('reviews');
+        if (Schema::hasTable('reviews')) { // ✅ Ensures rollback only if table exists
+            Schema::dropIfExists('reviews');
+        }
     }
 };

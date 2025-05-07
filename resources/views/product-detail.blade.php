@@ -96,75 +96,96 @@
 
 <!-- Nutrition Facts -->
 @if($product->nutrition)
-    <div class="container">
-        <h3>Nutrition Facts</h3>
-        <table class="nutrition-table">
-            <tr><th>Calories</th><td>{{ $product->nutrition->calories }}</td></tr>
-            <tr><th>Protein</th><td>{{ $product->nutrition->protein }}g</td></tr>
-            <tr><th>Carbs</th><td>{{ $product->nutrition->carbs }}g</td></tr>
-            <tr><th>Fat</th><td>{{ $product->nutrition->fat }}g</td></tr>
-        </table>
-    </div>
+    <section class="product-detail-section nutrition-facts">
+        <div class="container">
+            <h3>Nutrition Facts</h3>
+            <table class="nutrition-table">
+                <tr><th>Calories</th><td>{{ $product->nutrition->calories }}</td></tr>
+                <tr><th>Protein</th><td>{{ $product->nutrition->protein }}g</td></tr>
+                <tr><th>Carbs</th><td>{{ $product->nutrition->carbs }}g</td></tr>
+                <tr><th>Fat</th><td>{{ $product->nutrition->fat }}g</td></tr>
+            </table>
+        </div>
+    </section>
 @else
-    <p>No nutrition information available.</p>
+    <div class="container">
+        <div class="no-content-message">
+            <i class="fas fa-info-circle"></i>
+            <p>No nutrition information available for this product.</p>
+        </div>
+    </div>
 @endif
-
 
 <!-- Customer Reviews -->
-@if($product->reviews && $product->reviews->count() > 0)
-    <div class="reviews-list">
-        @foreach($product->reviews as $review)
-        <div class="review-item">
-            <div class="review-header">
-                <div class="reviewer-info">
-                <img src="{{ asset($review->user->avatar ?? 'images/jay.jpg') }}" class="reviewer-avatar">
-
-                    <div>
-                        <p class="reviewer-name">{{ $review->user->name }}</p>
-                        <p class="review-date">{{ $review->created_at->format('M d, Y') }}</p>
+<section class="product-detail-section reviews-section">
+    <div class="container">
+        <h3>Customer Reviews</h3>
+        @if($product->reviews && $product->reviews->count() > 0)
+            <div class="reviews-list">
+                @foreach($product->reviews as $review)
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <img src="{{ asset($review->user->avatar ?? 'images/jay.jpg') }}" class="reviewer-avatar">
+                            <div>
+                                <p class="reviewer-name">{{ $review->user->name }}</p>
+                                <p class="review-date">{{ $review->created_at->format('M d, Y') }}</p>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            @for ($i = 0; $i < $review->rating; $i++)
+                                <i class="fas fa-star"></i>
+                            @endfor
+                        </div>
                     </div>
+                    <p class="review-title">{{ $review->title }}</p>
+                    <p class="review-content">{{ $review->content }}</p>
                 </div>
-                <div class="stars">
-                    @for ($i = 0; $i < $review->rating; $i++)
-                        <i class="fas fa-star"></i>
-                    @endfor
-                </div>
+                @endforeach
             </div>
-            <p class="review-title">{{ $review->title }}</p>
-            <p class="review-content">{{ $review->content }}</p>
-        </div>
-        @endforeach
+        @else
+            <div class="no-content-message">
+                <i class="fas fa-comment-slash"></i>
+                <p>No reviews available for this product yet. Be the first to leave a review!</p>
+            </div>
+        @endif
     </div>
-@else
-    <p>No reviews available for this product.</p>
-@endif
-
+</section>
 
 <!-- Shipping Information -->
 <section class="shipping-info">
     <div class="container">
         <h3>Shipping & Delivery</h3>
-        <p>{{ $product->shipping_details }}</p>
+        <p>{{ $product->shipping_details ?? 'We offer fast and reliable shipping for all our products.' }}</p>
         <ul>
             <li><i class="fas fa-truck"></i> Fast nationwide delivery</li>
             <li><i class="fas fa-box-open"></i> Secure packaging</li>
+            <li><i class="fas fa-shield-alt"></i> Satisfaction guaranteed</li>
+            <li><i class="fas fa-undo"></i> Easy returns within 14 days</li>
         </ul>
     </div>
 </section>
+
 
 <!-- Related Products -->
 <section class="related-products">
     <div class="container">
         <h2 class="section-title">You May Also Like</h2>
-        <div class="row">
+        <div class="related-products-grid">
             @foreach($relatedProducts as $related)
-            <div class="col-md-3">
-                <div class="product-card">
-                    <img src="{{ asset($related->image_path) }}" class="card-img-top">
-                    <div class="card-body">
-                        <h5><a href="{{ route('product.detail', $related->slug) }}">{{ $related->name }}</a></h5>
-                        <p>₵{{ $related->regular_price }}</p>
+            <div class="product-card">
+                @if($related->is_new || $related->is_featured)
+                    <div class="product-badge">
+                        {{ $related->is_new ? 'New' : 'Featured' }}
                     </div>
+                @endif
+                <div class="product-image-container">
+                    <img src="{{ asset($related->image_path) }}" alt="{{ $related->name }}">
+                </div>
+                <div class="card-body">
+                    <h5><a href="{{ route('product.detail', $related->slug) }}">{{ $related->name }}</a></h5>
+                    <p>₵{{ $related->sale_price ?? $related->regular_price }}</p>
+                    <a href="{{ route('product.detail', $related->slug) }}" class="btn-view">View Product</a>
                 </div>
             </div>
             @endforeach
@@ -172,7 +193,6 @@
     </div>
 </section>
 @endsection
-
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

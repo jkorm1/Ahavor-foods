@@ -30,8 +30,6 @@ RUN chown -R www-data:www-data /var/www
 # Expose port 80 for HTTP traffic
 EXPOSE 80
 
-# Run Laravel database migrations automatically
-RUN php artisan migrate --force
 
 # Install Composer dependencies
 RUN composer install --no-dev --optimize-autoloader

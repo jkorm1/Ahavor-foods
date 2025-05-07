@@ -37,5 +37,6 @@ RUN composer install --no-dev --optimize-autoloader
 # Run Laravel database migrations automatically
 RUN php artisan migrate --force
 
-CMD ["php", "-S", "0.0.0.0:80", "-t", "public"]
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=80"]
+
 

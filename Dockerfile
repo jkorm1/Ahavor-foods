@@ -26,3 +26,9 @@ COPY . /var/www
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www
+
+# Expose port 80 for HTTP traffic
+EXPOSE 80
+
+# Run Laravel database migrations automatically
+RUN php artisan migrate --force

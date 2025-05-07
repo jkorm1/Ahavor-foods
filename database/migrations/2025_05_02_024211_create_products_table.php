@@ -25,7 +25,6 @@ return new class extends Migration
             $table->string('sku')->nullable();
             $table->string('availability')->default('In Stock');
             $table->timestamps();
-    
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }

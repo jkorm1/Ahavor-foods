@@ -32,3 +32,9 @@ EXPOSE 80
 
 # Run Laravel database migrations automatically
 RUN php artisan migrate --force
+
+# Install Composer dependencies
+RUN composer install --no-dev --optimize-autoloader
+
+# Run Laravel database migrations automatically
+RUN php artisan migrate --force

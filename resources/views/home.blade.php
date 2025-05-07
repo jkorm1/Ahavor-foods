@@ -8,7 +8,7 @@
         <!-- Background Slides -->
         <div class="hero-slide" style="background-image: url('{{ asset('images/ot.jpg') }}');"></div>
         <div class="hero-slide active" style="background-image: url('{{ asset('images/aha.png') }}');"></div>
-        <div class="hero-slide" style="background-image: url('{{ asset('images/quote.png') }}');"></div>
+        <div class="hero-slide" style="background-image: url('{{ asset('images/ene.jpg') }}');"></div>
        
         
         <div class="container">

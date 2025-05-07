@@ -38,3 +38,4 @@ RUN composer install --no-dev --optimize-autoloader
 RUN php artisan migrate --force
 
 CMD ["php", "-S", "0.0.0.0:80", "-t", "public"]
+

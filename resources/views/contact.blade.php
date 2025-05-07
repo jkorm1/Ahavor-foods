@@ -25,7 +25,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <h4>Visit Us</h4>
-                        <p>123 Nutrition Avenue<br>Accra, Ghana</p>
+                        <p>242 KNUST Avenue<br>Kumasi, Ghana</p>
                         <a href="https://maps.google.com" target="_blank" class="btn btn-outline-primary">Get Directions</a>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                             <i class="fas fa-phone-alt"></i>
                         </div>
                         <h4>Call Us</h4>
-                        <p>+233 20 123 4567<br>+233 30 987 6543</p>
+                        <p>+233 504984721<br>+233 543316245</p>
                         <a href="tel:+233201234567" class="btn btn-outline-primary">Call Now</a>
                     </div>
                 </div>

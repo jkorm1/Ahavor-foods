@@ -168,33 +168,52 @@
         /* Hero Section */
         .hero {
             position: relative;
+            overflow: hidden;
             height: 100vh;
             min-height: 700px;
             display: flex;
             align-items: center;
             background-size: cover;
             background-position: center;
-            overflow: hidden;
-            margin-top: 0;
-            padding-top: 80px;
         }
-        
-        .hero::before {
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            z-index: 0;
+        }
+
+        /* ✅ Apply Overlay Inside the Slide */
+        .hero-slide::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)); /* Adjust opacity */
             z-index: 1;
         }
+
         
         .hero-content {
             position: relative;
             z-index: 2;
             color: white;
             max-width: 600px;
+        }
+ 
+
+        .hero-slide.active {
+            opacity: 1;
+            z-index: 1;
         }
         
         .hero-subtitle {

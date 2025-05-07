@@ -30,7 +30,7 @@
                     </p>
                 </div>
                 <div class="about-story-image">
-                    <img src="{{ asset('images/quote.png') }}" alt="Ahavor Foods Story" class="blur-load">
+                    <img src="{{ asset('images/shirt.jpg') }}" alt="Ahavor Foods Story" class="blur-load">
                 </div>
             </div>
         </div>

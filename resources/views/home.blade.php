@@ -4,7 +4,13 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section class="hero" style="background-image: url('{{ asset('images/aha.PNG') }}');">
+    <section class="hero">
+        <!-- Background Slides -->
+        <div class="hero-slide" style="background-image: url('{{ asset('images/ot.jpg') }}');"></div>
+        <div class="hero-slide active" style="background-image: url('{{ asset('images/aha.png') }}');"></div>
+        <div class="hero-slide" style="background-image: url('{{ asset('images/quote.png') }}');"></div>
+       
+        
         <div class="container">
             <div class="hero-content" data-aos="fade-right" data-aos-delay="200">
                 <p class="hero-subtitle">Welcome to Ahavor Foods</p>
@@ -162,6 +168,24 @@
                 this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.08)';
             });
         });
+         // Hero Background Slider
+         const heroSlides = document.querySelectorAll('.hero-slide');
+        let currentSlide = 0;
+        
+        function nextSlide() {
+            // Remove active class from current slide
+            heroSlides[currentSlide].classList.remove('active');
+            
+            // Calculate next slide index
+            currentSlide = (currentSlide + 1) % heroSlides.length;
+            
+            // Add active class to next slide
+            heroSlides[currentSlide].classList.add('active');
+        }
+        
+        // Change slide every 5 seconds
+        setInterval(nextSlide, 5000);
     });
+    
 </script>
 @endsection

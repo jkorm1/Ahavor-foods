@@ -11,25 +11,25 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Schema::create('products', function (Blueprint $table) {
-           // $table->id();
-          //  $table->string('name');
-            //$table->string('slug')->unique();
-            //$table->text('description');
-            //$table->decimal('regular_price', 8, 2);
-           // $table->decimal('sale_price', 8, 2)->nullable();
-            //$table->unsignedBigInteger('category_id');
-            //$table->string('image_path');
-            //$table->string('badge')->nullable(); // Example: "Best Seller", "New"
-            //$table->json('features')->nullable();
-            //$table->string('sku')->nullable();
-            //$table->string('availability')->default('In Stock');
-            //$table->timestamps();
-        
-            //$table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-       // });
-        
+        Schema::create('products', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('slug')->unique();
+            $table->text('description');
+            $table->decimal('regular_price', 8, 2);
+            $table->decimal('sale_price', 8, 2)->nullable();
+            $table->unsignedBigInteger('category_id');
+            $table->string('image_path');
+            $table->string('badge')->nullable(); // Example: "Best Seller", "New"
+            $table->json('features')->nullable();
+            $table->string('sku')->nullable();
+            $table->string('availability')->default('In Stock');
+            $table->timestamps();
+    
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+        });
     }
+    
 
     /**
      * Reverse the migrations.

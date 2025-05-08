@@ -54,7 +54,3 @@ Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])-
 Route::get('/order/confirmation/{orderNumber}', [CheckoutController::class, 'confirmation'])->name('order.confirmation');
 
 
-Route::get('/migrate', function () {
-    \Artisan::call('migrate');
-    return 'Migration complete!';
-});

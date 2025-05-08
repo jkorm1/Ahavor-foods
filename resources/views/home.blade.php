@@ -98,7 +98,7 @@
                 </div>
                 
                 <div class="about-image-container" data-aos="fade-left">
-                    <img src="{{ asset('images/group.png') }}" alt="About Ahavor Foods" class="about-image blur-load">
+                    <img src="{{ asset('images/shirt.jpg') }}" alt="About Ahavor Foods" class="about-image blur-load">
                 </div>
             </div>
         </div>

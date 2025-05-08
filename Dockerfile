@@ -26,17 +26,3 @@ COPY . /var/www
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www
-
-# Expose port 80 for HTTP traffic
-EXPOSE 80
-
-
-# Install Composer dependencies
-RUN composer install --no-dev --optimize-autoloader
-
-# Run Laravel database migrations automatically
-RUN php artisan migrate --force
-
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=80"]
-
-

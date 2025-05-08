@@ -1,4 +1,7 @@
-FROM php:8.2-fpm
+FROM php:8.2-apache
+
+# Enable Apache modules
+RUN a2enmod rewrite
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -8,8 +11,7 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libxml2-dev \
     zip \
-    unzip \
-    nginx
+    unzip
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -20,53 +22,36 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Set working directory
-WORKDIR /var/www
+COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 
-COPY . /var/www
+# Set working directory
+WORKDIR /var/www/html
+
+# Copy application files
+COPY . /var/www/html
 
 # Install Composer dependencies
 RUN composer install --no-interaction --no-dev --optimize-autoloader
 
-# Create nginx configuration
-RUN echo 'server {\n\
-    listen 8080;\n\
-    server_name _;\n\
-    root /var/www/public;\n\
-    index index.php;\n\
-    charset utf-8;\n\
-    location / {\n\
-    try_files $uri $uri/ /index.php?$query_string;\n\
-    }\n\
-    location = /favicon.ico { access_log off; log_not_found off; }\n\
-    location = /robots.txt  { access_log off; log_not_found off; }\n\
-    error_page 404 /index.php;\n\
-    location ~ \.php$ {\n\
-    fastcgi_pass 127.0.0.1:9000;\n\
-    fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;\n\
-    include fastcgi_params;\n\
-    }\n\
-    location ~ /\.(?!well-known).* {\n\
-    deny all;\n\
-    }\n\
-    }' > /etc/nginx/sites-available/default
+# Set Apache document root to Laravel public directory
+ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+
+# Set permissions
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Create a startup script
 RUN echo '#!/bin/bash\n\
     php artisan config:cache\n\
     php artisan route:cache\n\
     php artisan storage:link\n\
-    chmod -R 775 /var/www/storage\n\
-    chmod -R 775 /var/www/bootstrap/cache\n\
-    service nginx start\n\
-    php-fpm\n\
-    ' > /var/www/start.sh && chmod +x /var/www/start.sh
-
-# Set permissions
-RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+    apache2-foreground\n\
+    ' > /var/www/html/start.sh && chmod +x /var/www/html/start.sh
 
 # Expose port 8080 (Railway default)
 EXPOSE 8080
 
-# Start Nginx & PHP-FPM
-CMD ["/var/www/start.sh"]
+# Start Apache
+CMD ["/var/www/html/start.sh"]

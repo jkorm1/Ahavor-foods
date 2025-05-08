@@ -9,8 +9,7 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     zip \
     unzip \
-    apache2 \
-    libapache2-mod-php
+    nginx
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -26,14 +25,33 @@ WORKDIR /var/www
 
 COPY . /var/www
 
-# Install Heroku PHP buildpack
-RUN composer require heroku/heroku-buildpack-php --no-interaction
+# Install Composer dependencies
+RUN composer install --no-interaction --no-dev --optimize-autoloader
+
+# Configure Nginx
+RUN echo 'server {\n\
+    listen 8080;\n\
+    root /var/www/public;\n\
+    index index.php index.html;\n\
+    location / {\n\
+    try_files $uri $uri/ /index.php?$query_string;\n\
+    }\n\
+    location ~ \.php$ {\n\
+    fastcgi_pass 127.0.0.1:9000;\n\
+    fastcgi_index index.php;\n\
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;\n\
+    include fastcgi_params;\n\
+    }\n\
+    }' > /etc/nginx/sites-available/default
+
+# Create symbolic link for the default site configuration
+RUN ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 
 # Set permissions
-RUN chown -R www-data:www-data /var/www
+RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
 # Expose port 8080 (Railway default)
 EXPOSE 8080
 
-# Set the CMD to your start command
-CMD ["vendor/bin/heroku-php-apache2", "public/"]
+# Start Nginx & PHP-FPM
+CMD sh -c "php artisan config:cache && php artisan route:cache && service nginx start && php-fpm"

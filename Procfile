@@ -1,1 +1,1 @@
-web: /var/www/html/start.sh
+web: php -S 0.0.0.0:$PORT -t public

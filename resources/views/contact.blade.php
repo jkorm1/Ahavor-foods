@@ -64,7 +64,7 @@
                         <h3>Send Us a Message</h3>
                         <p>Fill out the form below and we'll get back to you as soon as possible.</p>
                         
-                        <form id="contactForm" action="{{ route('contact') }}" method="POST">
+                        <form id="contactForm" action="{{ route('contactsubmit') }}" method="POST">
                             @csrf
                             
                             <div class="row">
@@ -317,12 +317,4 @@
 
 
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // ✅ Stops page refresh
-        alert('Form is submitting...'); // ✅ Debug message to confirm button works
-        this.submit(); // ✅ Manually submits the form after validation
-    });
-});
-</script>
+

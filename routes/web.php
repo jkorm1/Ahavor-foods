@@ -23,7 +23,7 @@ Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])
 
 // Contact Form Submission
 Route::get('/contact', [ContactController::class, 'index'])->name('contact'); // Loads the Contact page
-Route::post('/contact', [ContactController::class, 'submit'])->name('contact'); // Handles form submissions
+Route::post('/contact', [ContactController::class, 'submit'])->name('contactsubmit'); // Handles form submissions
 
 // Products Page
 Route::get('/products', [ProductController::class, 'index'])->name('products');

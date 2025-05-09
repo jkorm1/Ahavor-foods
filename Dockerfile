@@ -51,9 +51,7 @@ RUN echo '#!/bin/bash\n\
     ' > /var/www/html/start.sh && chmod +x /var/www/html/start.sh
 
 # Expose port 8080 (Railway default)
-EXPOSE 80
+EXPOSE 8080
 
 # Start Apache
-
-
-CMD ["apache2-foreground"]
+CMD ["/var/www/html/start.sh"]

@@ -26,6 +26,8 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Copy Apache configuration
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 
+RUN echo 'Listen 8080' >> /etc/apache2/ports.conf
+
 # Set working directory
 WORKDIR /var/www/html
 

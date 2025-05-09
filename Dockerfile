@@ -68,7 +68,7 @@ RUN echo '#!/bin/bash\n\
     ' > /var/www/html/start.sh && chmod +x /var/www/html/start.sh
 
 # Expose the correct port for Railway
-EXPOSE 80
+EXPOSE 8080
 
 # Start Apache using the startup script
 CMD ["/var/www/html/start.sh"]

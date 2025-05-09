@@ -26,6 +26,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Copy Apache configuration
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 
+# Set Apache to listen on Railway's expected port
 RUN echo 'Listen 8080' >> /etc/apache2/ports.conf
 
 # Set working directory
@@ -38,12 +39,10 @@ COPY . /var/www/html
 RUN composer install --no-interaction --no-dev --optimize-autoloader
 
 # Set Apache document root to Laravel public directory
-ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 RUN sed -ri -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -e 's!/var/www/!/var/www/html/public!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 RUN echo 'DocumentRoot /var/www/html/public' >> /etc/apache2/sites-available/000-default.conf
 RUN echo 'DocumentRoot /var/www/html/public' >> /etc/apache2/apache2.conf
-
 
 # Allow .htaccess overrides for Laravel
 RUN echo '<Directory /var/www/html/public>\n\
@@ -56,18 +55,8 @@ RUN echo '<Directory /var/www/html/public>\n\
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
 
-
 # Ensure Laravel's storage symlink exists
 RUN if [ ! -L /var/www/html/public/storage ]; then php artisan storage:link; fi
-
-# Create and ensure execution permission for startup script
-RUN echo '#!/bin/bash\n\
-    service apache2 start\n\
-    php artisan config:cache\n\
-    php artisan route:cache\n\
-    php artisan view:cache\n\
-    apache2-foreground\n\
-    ' > /var/www/html/start.sh && chmod +x /var/www/html/start.sh
 
 # Expose the correct port for Railway
 EXPOSE 8080

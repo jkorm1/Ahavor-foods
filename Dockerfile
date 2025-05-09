@@ -42,6 +42,7 @@ RUN sed -ri -e 's!/var/www/!/var/www/html/public!g' /etc/apache2/apache2.conf /e
 RUN echo 'DocumentRoot /var/www/html/public' >> /etc/apache2/sites-available/000-default.conf
 RUN echo 'DocumentRoot /var/www/html/public' >> /etc/apache2/apache2.conf
 
+
 # Allow .htaccess overrides for Laravel
 RUN echo '<Directory /var/www/html/public>\n\
     Options Indexes FollowSymLinks\n\

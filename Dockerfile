@@ -56,7 +56,7 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
 
 # Ensure Laravel's storage symlink exists
-RUN if [ ! -L /var/www/html/public/storage ]; then php artisan storage:link; fi
+
 
 # Expose the correct port for Railway
 EXPOSE 8080

@@ -62,4 +62,6 @@ RUN if [ ! -L /var/www/html/public/storage ]; then php artisan storage:link; fi
 EXPOSE 8080
 
 # Start Apache using the startup script
-CMD ["/var/www/html/start.sh"]
+RUN chmod +x /var/www/html/start.sh
+CMD ["/bin/bash", "-c", "/var/www/html/start.sh"]
+

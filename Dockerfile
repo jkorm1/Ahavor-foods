@@ -53,13 +53,16 @@ RUN echo '<Directory /var/www/html/public>\n\
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
 
+
+# Ensure Laravel's storage symlink exists
+RUN if [ ! -L /var/www/html/public/storage ]; then php artisan storage:link; fi
+
 # Create and ensure execution permission for startup script
 RUN echo '#!/bin/bash\n\
     service apache2 start\n\
     php artisan config:cache\n\
     php artisan route:cache\n\
     php artisan view:cache\n\
-    php artisan storage:link\n\
     apache2-foreground\n\
     ' > /var/www/html/start.sh && chmod +x /var/www/html/start.sh
 

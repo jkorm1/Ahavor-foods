@@ -54,4 +54,6 @@ RUN echo '#!/bin/bash\n\
 EXPOSE 80
 
 # Start Apache
-CMD ["/var/www/html/start.sh"]
+
+
+CMD ["apache2-foreground"]

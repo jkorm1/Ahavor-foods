@@ -53,14 +53,18 @@ RUN echo '<Directory /var/www/html/public>\n\
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
 
-# Clear and cache Laravel configurations
-RUN php artisan config:clear && php artisan config:cache
-RUN php artisan route:cache
-RUN php artisan view:cache
-RUN php artisan storage:link
+# Create and ensure execution permission for startup script
+RUN echo '#!/bin/bash\n\
+    service apache2 start\n\
+    php artisan config:cache\n\
+    php artisan route:cache\n\
+    php artisan view:cache\n\
+    php artisan storage:link\n\
+    apache2-foreground\n\
+    ' > /var/www/html/start.sh && chmod +x /var/www/html/start.sh
 
 # Expose the correct port for Railway
 EXPOSE 80
 
-# Start Apache directly
-CMD ["apache2-foreground"]
+# Start Apache using the startup script
+CMD ["/var/www/html/start.sh"]

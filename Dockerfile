@@ -1,3 +1,4 @@
+# Use PHP 8.2 with Apache
 FROM php:8.2-apache
 
 # Enable Apache modules
@@ -22,6 +23,7 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+# Copy Apache configuration
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 
 # Set working directory
@@ -37,21 +39,28 @@ RUN composer install --no-interaction --no-dev --optimize-autoloader
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+RUN echo 'DocumentRoot /var/www/html/public' >> /etc/apache2/sites-available/000-default.conf
+RUN echo 'DocumentRoot /var/www/html/public' >> /etc/apache2/apache2.conf
 
-# Set permissions
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
-RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+# Allow .htaccess overrides for Laravel
+RUN echo '<Directory /var/www/html/public>\n\
+    Options Indexes FollowSymLinks\n\
+    AllowOverride All\n\
+    Require all granted\n\
+    </Directory>' >> /etc/apache2/apache2.conf
 
-# Create a startup script
-RUN echo '#!/bin/bash\n\
-    php artisan config:cache\n\
-    php artisan route:cache\n\
-    php artisan storage:link\n\
-    apache2-foreground\n\
-    ' > /var/www/html/start.sh && chmod +x /var/www/html/start.sh
+# Set permissions for Laravel directories
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
+RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
 
-# Expose port 8080 (Railway default)
-EXPOSE 8080
+# Clear and cache Laravel configurations
+RUN php artisan config:clear && php artisan config:cache
+RUN php artisan route:cache
+RUN php artisan view:cache
+RUN php artisan storage:link
 
-# Start Apache
-CMD ["/var/www/html/start.sh"]
+# Expose the correct port for Railway
+EXPOSE 80
+
+# Start Apache directly
+CMD ["apache2-foreground"]

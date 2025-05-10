@@ -38,5 +38,8 @@ cat > /etc/apache2/sites-available/000-default.conf << EOF
 </VirtualHost>
 EOF
 
+# Check Apache
+which apache2-foreground || echo "Apache not found"
+ls -la /usr/local/bin/apache2-foreground || echo "Apache binary not found"
 # Start Apache
 apache2-foreground

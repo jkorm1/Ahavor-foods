@@ -1,6 +1,10 @@
 #!/bin/bash
 # Start script for Laravel on Railway
 
+# Add this near the top of your start.sh file
+echo "Environment variables:"
+printenv | sort
+echo "---------------------"
 # Run Laravel optimizations
 php artisan config:cache
 php artisan route:cache

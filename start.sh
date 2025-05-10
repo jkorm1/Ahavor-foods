@@ -1,45 +1,29 @@
 #!/bin/bash
-# Start script for Laravel on Railway
 
-# Add this near the top of your start.sh file
+# Debug: Print environment variables
 echo "Environment variables:"
 printenv | sort
 echo "---------------------"
+
+# After printing environment variables
+echo "Checking Apache..."
+which apache2-foreground
+echo "Apache binary status: $?"
+ls -la /usr/local/bin/apache2* || echo "No Apache binaries found"
+echo "Checking Apache configuration..."
+cat /etc/apache2/ports.conf
+echo "---------------------"
+
+# Get the PORT from environment variable or default to 8080
+export PORT="${PORT:-8080}"
+echo "Using PORT: $PORT"
+
 # Run Laravel optimizations
+cd /var/www/html
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
-
-# Create storage link if it doesn't exist
 php artisan storage:link || true
 
-# Get the PORT from environment variable or default to 8080
-PORT="${PORT:-8080}"
-echo "Using PORT: $PORT"
-
-# Directly write the correct configuration instead of using sed
-echo "Listen $PORT" > /etc/apache2/ports.conf
-echo "ServerName localhost" >> /etc/apache2/ports.conf
-
-# Update the VirtualHost configuration
-cat > /etc/apache2/sites-available/000-default.conf << EOF
-<VirtualHost *:$PORT>
-    ServerAdmin webmaster@localhost
-    DocumentRoot /var/www/html/public
-    
-    <Directory /var/www/html/public>
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Require all granted
-    </Directory>
-    
-    ErrorLog \${APACHE_LOG_DIR}/error.log
-    CustomLog \${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>
-EOF
-
-# Check Apache
-which apache2-foreground || echo "Apache not found"
-ls -la /usr/local/bin/apache2-foreground || echo "Apache binary not found"
-# Start Apache
-apache2-foreground
+# Start PHP's built-in server
+php artisan serve --host=0.0.0.0 --port=$PORT

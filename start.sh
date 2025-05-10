@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Ensure the script has execution permissions
+chmod +x start.sh
+
 # Debug: Print environment variables
 echo "Environment variables:"
 printenv | sort
@@ -25,5 +28,9 @@ php artisan route:cache
 php artisan view:cache
 php artisan storage:link || true
 
-# Start PHP's built-in server
-php artisan serve --host=0.0.0.0 --port=$PORT
+# Set permissions for Laravel directories (important for runtime operations)
+chmod -R 775 storage bootstrap/cache
+chown -R www-data:www-data storage bootstrap/cache
+
+# Start Laravel with Apache
+vendor/bin/heroku-php-apache2 public/

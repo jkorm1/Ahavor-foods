@@ -1,1 +1,1 @@
-web: apache2-foreground
+web: bash -c 'if [ -f /usr/local/bin/apache2-foreground ]; then /var/www/html/start.sh; else cd /var/www/html && php artisan serve --host=0.0.0.0 --port=${PORT:-8080}; fi'

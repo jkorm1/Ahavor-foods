@@ -1,1 +1,1 @@
-web: ./start.sh
+web: apache2-foreground

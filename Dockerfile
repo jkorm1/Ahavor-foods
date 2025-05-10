@@ -59,7 +59,7 @@ RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/ht
 
 
 # Expose the correct port for Railway
-EXPOSE 8080
+EXPOSE ${PORT:-8080}
 
 # Start Apache using the startup script
 RUN chmod +x /var/www/html/start.sh

@@ -6,8 +6,8 @@
     <!-- Hero Section -->
     <section class="hero">
         <!-- Background Slides -->
-        <div class="hero-slide" style="background-image: url('{{ asset('images/ot.jpg') }}');"></div>
-        <div class="hero-slide active" style="background-image: url('{{ asset('images/aha.png') }}');"></div>
+        <div class="hero-slide" style="background-image: url('{{ url('images/ot.jpg') }}');"></div>
+        <div class="hero-slide active" style="background-image: url('{{ url('images/aha.png') }}');"></div>
         <div class="hero-slide" style="background-image: url('{{ asset('images/ene.jpg') }}');"></div>
        
         

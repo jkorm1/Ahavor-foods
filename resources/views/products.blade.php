@@ -48,31 +48,53 @@
 </section>
 
 <!-- Features Section -->
-<section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="bg-white p-6 rounded-lg shadow-sm text-center">
-                <i class="fas fa-leaf text-2xl text-ahavor-orange"></i>
-                <h3 class="text-xl font-bold text-gray-900">100% Natural</h3>
-                <p>All our products are made with natural ingredients.</p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-sm text-center">
-                <i class="fas fa-heart text-2xl text-ahavor-green"></i>
-                <h3 class="text-xl font-bold text-gray-900">Nutritious</h3>
-                <p>Packed with essential nutrients to support your health.</p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-sm text-center">
-                <i class="fas fa-truck text-2xl text-ahavor-gold"></i>
-                <h3 class="text-xl font-bold text-gray-900">Fast Delivery</h3>
-                <p>Quick delivery to bring our products to your doorstep.</p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-sm text-center">
-                <i class="fas fa-shield-alt text-2xl text-ahavor-orange"></i>
-                <h3 class="text-xl font-bold text-gray-900">Quality Guaranteed</h3>
-                <p>We stand behind the quality of our products.</p>
+<section class="section about-section">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-content" data-aos="fade-right">
+                    <h2 class="about-title">Discover Quality</h2>
+                    <p class="about-description">At Ahavor Foods, we bring you a collection of high-quality, nutritious food products crafted with love and expertise. From fresh organic ingredients to expertly made delicacies, each product reflects our commitment to excellence.</p>
+                    <p class="abouts-description">Our range is carefully curated to offer you the finest flavors, backed by sustainable practices and a dedication to health and wellness.</p>
+                    
+                    <div class="about-features">
+                        <div>
+                            <div class="about-feature">
+                                <div class="feature-icon">
+                                    <i class="fas fa-apple-alt"></i>
+                                </div>
+                                <div class="feature-text">Fresh & Organic</div>
+                            </div>
+                            <div class="about-feature">
+                                <div class="feature-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="feature-text">Superior Taste</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="about-feature">
+                                <div class="feature-icon">
+                                    <i class="fas fa-hand-holding-heart"></i>
+                                </div>
+                                <div class="feature-text">Ethically Sourced</div>
+                            </div>
+                            <div class="about-feature">
+                                <div class="feature-icon">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <div class="feature-text">Eco-Friendly Packaging</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="{{ route('products') }}" class="cta-button">Explore Our Products</a>
+                </div>
+                
+                <div class="products-image-container" data-aos="fade-left">
+                    <img src="/images/energyy.png" alt="Ahavor Foods Products" class="about-image blur-load">
+                </div>
             </div>
         </div>
-    </div>
 </section>
 
     <!-- Newsletter Section -->

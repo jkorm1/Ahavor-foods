@@ -57,7 +57,6 @@
                         @else
                         <p>No results found for your search.</p>
                     @endif
-                    
                 </div>
                     
                     <!-- Pagination -->

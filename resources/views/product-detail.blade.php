@@ -59,7 +59,7 @@
                     <div class="meta-item">
                         <i class="fas fa-check-circle"></i>
                         <span class="meta-title">Availability:</span>
-                        <span class="meta-value {{ $product->stock > 0 ? 'in-stock' : '' }}">{{ $product->stock > 0 ? 'In Stock' : 'Out of Stock' }}</span>
+                        <span class="meta-value {{ $product->stock > 0 ? 'in-stock' : '' }}">{{ $product->stock > 0 ? 'In Stock' : 'Stock' }}</span>
                     </div>
                     <div class="meta-item">
                         <i class="fas fa-weight-hanging"></i>

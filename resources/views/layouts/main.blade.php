@@ -5248,11 +5248,11 @@
                 <div class="footer-column">
                     <h3 class="footer-title">Products</h3>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Oat Products</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Tom Brown</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Cereal Mixes</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Nutritional Supplements</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Special Offers</a></li>
+                        <li><a href="{{ route('products') }}"><i class="fas fa-chevron-right"></i> Oat Products</a></li>
+                        <li><a href="{{ route('products') }}"><i class="fas fa-chevron-right"></i> Tom Brown</a></li>
+                        <li><a href="{{ route('products') }}"><i class="fas fa-chevron-right"></i> Cereal Mixes</a></li>
+                        <li><a href="{{ route('products') }}"><i class="fas fa-chevron-right"></i> Nutritional Supplements</a></li>
+                        <li><a href="{{ route('products') }}"><i class="fas fa-chevron-right"></i> Special Offers</a></li>
                     </ul>
                 </div>
                 

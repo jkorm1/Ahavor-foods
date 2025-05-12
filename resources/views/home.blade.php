@@ -45,7 +45,7 @@
                             <h3 class="product-title">{{ $product->name }}</h3>
                             <p class="product-description">{{ $product->description }}</p>
                             <p class="product-price">GH₵ {{ $product->sale_price ?? $product->regular_price }}</p>
-                            <a href="#" class="product-button">Add to Cart</a>
+                            <a href="{{ route('products') }}" class="product-button">Add to Cart</a>
                         </div>
                     </div>
                 @endforeach

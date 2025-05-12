@@ -5178,7 +5178,7 @@
         <div class="container">
             <div class="header-inner">
                 <div class="logo">
-                    <img src="{{ asset('images/logo.png') }}" alt="Ahavor Foods Logo">
+                    <img src="{{ url('images/logo.png') }}" alt="Ahavor Foods Logo">
                 </div>
                 
                 <nav class="nav-links">
@@ -5223,7 +5223,7 @@
             <div class="footer-container">
                 <div class="footer-column">
                     <div class="footer-logo">
-                        <img src="{{ asset('images/logo.png') }}" alt="Ahavor Foods Logo">
+                        <img src="{{ url('images/logo.png') }}" alt="Ahavor Foods Logo">
                     </div>
                     <p class="footer-about">Ahavor Foods combines the Hebrew words for "love" and "light" to bring you nutritious, delicious food products made with care and passion.</p>
                     <div class="footer-social">

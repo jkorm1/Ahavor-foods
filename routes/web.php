@@ -54,3 +54,13 @@ Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])-
 Route::get('/order/confirmation/{orderNumber}', [CheckoutController::class, 'confirmation'])->name('order.confirmation');
 
 
+
+
+
+Route::get('/debug-images', function () {
+    return response()->json([
+        'files' => scandir(public_path('images'))
+    ]);
+});
+
+

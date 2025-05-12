@@ -57,7 +57,7 @@
                     <p class="abouts-description">Our range is carefully curated to offer you the finest flavors, backed by sustainable practices and a dedication to health and wellness.</p>
                     
                     <div class="about-features">
-                        <div>
+                        
                             <div class="about-feature">
                                 <div class="feature-icon">
                                     <i class="fas fa-apple-alt"></i>
@@ -70,8 +70,8 @@
                                 </div>
                                 <div class="feature-text">Superior Taste</div>
                             </div>
-                        </div>
-                        <div>
+                        
+                        
                             <div class="about-feature">
                                 <div class="feature-icon">
                                     <i class="fas fa-hand-holding-heart"></i>
@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="feature-text">Eco-Friendly Packaging</div>
                             </div>
-                        </div>
+                        
                     </div>
                     
                     <a href="{{ route('products') }}" class="cta-button">Explore Our Products</a>

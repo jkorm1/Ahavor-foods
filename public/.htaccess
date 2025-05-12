@@ -5,6 +5,9 @@
 
     header("Access-Control-Allow-Origin: *");
 
+    RewriteRule ^images/(.*)$ public/images/$1 [L]
+
+
 
     RewriteEngine On
 

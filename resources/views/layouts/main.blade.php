@@ -2789,9 +2789,8 @@
     margin-top: 30px;
     overflow: hidden; /* Hide overflow to prevent jumps */
     white-space: nowrap; /* Prevent wrapping */
-    animation: scrollReviews 20s linear infinite; /* Apply animation */
+    animation: scrollReviews 10s linear infinite; /* Apply animation */
 }
-
 
 .review-item {
     background: white;

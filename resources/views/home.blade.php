@@ -122,10 +122,10 @@
                     <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
                         <p class="testimonial-content">"{{ $testimonial->message }}"</p>
                         <div class="testimonial-author">
-                            <img src="{{ asset($testimonial->image_path) }}" alt="{{ $testimonial->name }}" class="author-image">
                             <div class="author-info">
                                 <h4 class="author-name">{{ $testimonial->name }}</h4>
                                 <p class="author-title">{{ $testimonial->title }}</p>
+                                <img src="{{ asset($testimonial->image_path) }}" alt="{{ $testimonial->name }}" class="author-image">
                                 <div class="testimonial-rating">
                                     @for ($i = 0; $i < floor($testimonial->rating); $i++)
                                         <i class="fas fa-star"></i>

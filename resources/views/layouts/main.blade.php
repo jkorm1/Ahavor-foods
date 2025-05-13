@@ -2772,16 +2772,26 @@
 }
 
 /* Reviews Styling */
+
+@keyframes scrollReviews {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
 .reviews-section {
     margin-top: 50px;
 }
 
 .reviews-list {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* Change to row for horizontal scrolling */
     gap: 20px;
     margin-top: 30px;
+    overflow: hidden; /* Hide overflow to prevent jumps */
+    white-space: nowrap; /* Prevent wrapping */
+    animation: scrollReviews 20s linear infinite; /* Apply animation */
 }
+
 
 .review-item {
     background: white;

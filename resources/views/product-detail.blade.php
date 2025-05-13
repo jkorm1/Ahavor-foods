@@ -121,6 +121,7 @@
     <div class="container">
         <h3>Customer Reviews</h3>
         @if($product->reviews && $product->reviews->count() > 0)
+            <div class="reviews-wrapper">
             <div class="reviews-list">
                 @foreach($product->reviews as $review)
                 <div class="review-item">
@@ -142,6 +143,7 @@
                     <p class="review-content">{{ $review->content }}</p>
                 </div>
                 @endforeach
+            </div>
             </div>
         @else
             <div class="no-content-message">
@@ -218,5 +220,21 @@
                 input.dispatchEvent(new Event('input')); // 🚀 Forces the browser to visually update
             });
         });
+
+        const reviewsList = document.querySelector(".reviews-list");
+
+        function scrollReviews() {
+            reviewsList.style.transition = "transform 20s linear";
+            reviewsList.style.transform = `translateX(-${reviewsList.scrollWidth}px)`;
+            setTimeout(() => {
+                reviewsList.style.transition = "none";
+                reviewsList.style.transform = "translateX(0)";
+            }, 20000);
+        }
+
+        setInterval(scrollReviews, 20000);
     });
+
+    
+    
 </script>

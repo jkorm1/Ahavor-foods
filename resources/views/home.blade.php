@@ -6,10 +6,10 @@
     <!-- Hero Section -->
     <section class="hero">
         <!-- Background Slides -->
-        <div class="hero-slide" style="background-image: url('https://i.pinimg.com/originals/example1.jpg');"></div>
-        <div class="hero-slide" style="background-image: url('https://i.pinimg.com/originals/example2.jpg');"></div>
-        <div class="hero-slide active" style="background-image: url('https://i.pinimg.com/originals/example3.jpg');"></div>
-        <div class="hero-slide" style="background-image: url('https://i.pinimg.com/originals/example4.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('https://i.pinimg.com/736x/b9/08/79/b908792c816dc17c0fb41d40e4921841.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('https://i.pinimg.com/736x/62/6b/36/626b366e9c3f0fcee7aea2d34d895ffa.jpg');"></div>
+        <div class="hero-slide active" style="background-image: url('https://i.pinimg.com/736x/7d/b4/3e/7db43e5eaf63da07dfdeb0e6bb4bdc5f.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('https://i.pinimg.com/736x/25/de/a8/25dea8a9b862a06857e59a4d01388e5f.jpg');"></div>
 
        
         

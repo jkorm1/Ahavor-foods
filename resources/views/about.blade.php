@@ -4,7 +4,8 @@
 
 @section('content')
     <!-- About Hero Section -->
-    <section class="about-hero" style="background-image: url('{{ asset('images/shirt.jpg') }}');">
+    <section class="about-hero" style="background-image: url('https://i.pinimg.com/736x/c9/41/62/c941622d51b040ab80396b3a56eaf5b4.jpg');">
+
         <div class="container">
             <div class="about-hero-content">
                 <h1 class="about-hero-title">Our Story</h1>

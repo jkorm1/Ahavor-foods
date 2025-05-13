@@ -6,11 +6,11 @@
     <!-- Hero Section -->
     <section class="hero">
         <!-- Background Slides -->
-        <div class="hero-slide" style="background-image: url('{{ url('images/ahavorr.jpg') }}');"></div>
-        <div class="hero-slide" style="background-image: url('{{ url('images/ahavor.jpg') }}');"></div>
-        <div class="hero-slide active" style="background-image: url('{{ url('images/ot.jpg') }}');"></div>
-        <div class="hero-slide" style="background-image: url('{{ asset('images/energy.jpg') }}');"></div>
-      
+        <div class="hero-slide" style="background-image: url('https://i.pinimg.com/originals/example1.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('https://i.pinimg.com/originals/example2.jpg');"></div>
+        <div class="hero-slide active" style="background-image: url('https://i.pinimg.com/originals/example3.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('https://i.pinimg.com/originals/example4.jpg');"></div>
+
        
         
         <div class="container">
@@ -100,13 +100,13 @@
                 </div>
                 
                 <div class="about-image-container" data-aos="fade-left">
-                    <img src="/images/group.jpg" alt="About Ahavor Foods" class="about-image blur-load">
+                    <img src="https://i.pinimg.com/736x/a2/3d/32/a23d32f28abfa421e15f7add803831f4.jpg" alt="About Ahavor Foods" class="about-image blur-load">
                 </div>
             </div>
         </div>
     </section>
     <div class="about-image-container" data-aos="fade-left">
-        <img src="/images/shirt.jpg" alt="About Ahavor Foods" class="about-image blur-load">
+     <img src="https://i.pinimg.com/736x/c9/41/62/c941622d51b040ab80396b3a56eaf5b4.jpg" alt="About Ahavor Foods" class="about-image blur-load">
     </div>
     <!-- Testimonials Section (Now Dynamic) -->
     <section class="section testimonials-section">

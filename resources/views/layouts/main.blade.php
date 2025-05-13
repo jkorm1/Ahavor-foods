@@ -5187,7 +5187,7 @@
         <div class="container">
             <div class="header-inner">
                 <div class="logo">
-                    <img src="https://i.pinimg.com/736x/b7/4f/9d/b74f9da81cf426891c4f7ff4fc59e733.jpg" alt="Ahavor Foods Logo">
+                    <img src="https://i.pinimg.com/736x/cd/b9/57/cdb957f76a6d7aed4acfcebd7b3f0d03.jpg" alt="Ahavor Foods Logo">
                 </div>
                 
                 <nav class="nav-links">
@@ -5232,7 +5232,7 @@
             <div class="footer-container">
                 <div class="footer-column">
                     <div class="footer-logo">
-                    <img src="https://i.pinimg.com/736x/b7/4f/9d/b74f9da81cf426891c4f7ff4fc59e733.jpg" alt="Ahavor Foods Logo">
+                    <img src="https://i.pinimg.com/736x/cd/b9/57/cdb957f76a6d7aed4acfcebd7b3f0d03.jpg" alt="Ahavor Foods Logo">
                     </div>
                     <p class="footer-about">Ahavor Foods combines the Hebrew words for "love" and "light" to bring you nutritious, delicious food products made with care and passion.</p>
                     <div class="footer-social">

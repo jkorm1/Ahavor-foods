@@ -91,7 +91,7 @@
                 </div>
                 
                 <div class="products-image-container" data-aos="fade-left">
-                    <img src="https://i.pinimg.com/736x/7b/49/af/7b49affedb20afb7da4b61611f35ab72.jpg" alt="Ahavor Foods Products" class="about-image blur-load">
+                    <img src="https://i.pinimg.com/736x/27/eb/a1/27eba13c0f5bd772c7997deff0f82521.jpg" alt="Ahavor Foods Products" class="about-image blur-load">
                 </div>
             </div>
         </div>

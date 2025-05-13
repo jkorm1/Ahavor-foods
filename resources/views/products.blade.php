@@ -91,7 +91,7 @@
                 </div>
                 
                 <div class="products-image-container" data-aos="fade-left">
-                    <img src="/images/energyy.png" alt="Ahavor Foods Products" class="about-image blur-load">
+                    <img src="/images/sammy.jpg" alt="Ahavor Foods Products" class="about-image blur-load">
                 </div>
             </div>
         </div>

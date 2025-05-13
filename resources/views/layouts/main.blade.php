@@ -497,7 +497,7 @@
         .about-image-container {
             position: relative;
             border-radius: 20px;
-            overflow: hidden;
+            overfloww: ;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
         

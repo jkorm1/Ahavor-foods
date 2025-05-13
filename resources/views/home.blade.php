@@ -6,9 +6,11 @@
     <!-- Hero Section -->
     <section class="hero">
         <!-- Background Slides -->
-        <div class="hero-slide" style="background-image: url('{{ url('images/ot.jpg') }}');"></div>
-        <div class="hero-slide active" style="background-image: url('{{ url('images/aha.png') }}');"></div>
-        <div class="hero-slide" style="background-image: url('{{ asset('images/ene.jpg') }}');"></div>
+        <div class="hero-slide" style="background-image: url('{{ url('images/ahavorr.jpg') }}');"></div>
+        <div class="hero-slide" style="background-image: url('{{ url('images/ahavor.jpg') }}');"></div>
+        <div class="hero-slide active" style="background-image: url('{{ url('images/ot.jpg') }}');"></div>
+        <div class="hero-slide" style="background-image: url('{{ asset('images/energy.jpg') }}');"></div>
+      
        
         
         <div class="container">
@@ -98,12 +100,14 @@
                 </div>
                 
                 <div class="about-image-container" data-aos="fade-left">
-                    <img src="/images/shirt.jpg" alt="About Ahavor Foods" class="about-image blur-load">
+                    <img src="/images/group.jpg" alt="About Ahavor Foods" class="about-image blur-load">
                 </div>
             </div>
         </div>
     </section>
-    
+    <div class="about-image-container" data-aos="fade-left">
+        <img src="/images/shirt.jpg" alt="About Ahavor Foods" class="about-image blur-load">
+    </div>
     <!-- Testimonials Section (Now Dynamic) -->
     <section class="section testimonials-section">
         <div class="container testimonials-container">

@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- About Hero Section -->
-    <section class="about-hero" style="background-image: url('{{ asset('images/about-hero.jpg') }}');">
+    <section class="about-hero" style="background-image: url('{{ asset('images/shirt.jpg') }}');">
         <div class="container">
             <div class="about-hero-content">
                 <h1 class="about-hero-title">Our Story</h1>
@@ -30,7 +30,7 @@
                     </p>
                 </div>
                 <div class="about-story-image">
-                    <img src="{{ asset('images/shirt.jpg') }}" alt="Ahavor Foods Story" class="blur-load">
+                    <img src="{{ asset('images/group.jpg') }}" alt="Ahavor Foods Story" class="blur-load">
                 </div>
             </div>
         </div>
